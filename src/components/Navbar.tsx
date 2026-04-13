@@ -3,7 +3,7 @@ import { Menu, X, Zap } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const links = ["About", "Services", "Impact", "Contact"];
+  const links = ["About", "Services", "Projects", "Team", "SDG", "Contact"];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-card/80 backdrop-blur-lg border-b border-border">
