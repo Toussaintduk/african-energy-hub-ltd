@@ -4,14 +4,14 @@ import logo from "@/assets/logo-aeh.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const links = ["About", "Services", "Projects", "Team", "SDG", "Contact"];
+  const links = ["About", "Services", "Team", "SDG", "Contact"];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border shadow-sm">
-      <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2 font-display font-bold text-lg text-foreground">
-          <img src={logo} alt="African Energy Hub logo" width={40} height={40} className="h-10 w-10 object-contain" />
-          <span>African Energy Hub</span>
+      <div className="container flex items-center justify-between h-20">
+        <a href="#" className="flex items-center gap-3 font-display font-bold text-lg text-foreground">
+          <img src={logo} alt="African Energy Hub Ltd logo" width={64} height={64} className="h-16 w-16 object-contain" />
+          <span className="hidden sm:inline">African Energy Hub Ltd</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
@@ -24,9 +24,9 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden fixed inset-0 bg-background z-50 flex flex-col p-6">
           <div className="flex justify-between items-center mb-8">
-            <span className="font-display font-bold text-lg flex items-center gap-2 text-foreground">
-              <img src={logo} alt="AEH" width={40} height={40} className="h-10 w-10 object-contain" />
-              African Energy Hub
+            <span className="font-display font-bold text-lg flex items-center gap-3 text-foreground">
+              <img src={logo} alt="AEH Ltd" width={56} height={56} className="h-14 w-14 object-contain" />
+              African Energy Hub Ltd
             </span>
             <button onClick={() => setOpen(false)} className="text-foreground"><X className="h-6 w-6" /></button>
           </div>
