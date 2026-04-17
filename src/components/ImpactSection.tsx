@@ -8,7 +8,7 @@ const impacts = [
 ];
 
 const ImpactSection = () => (
-  <section id="impact" className="py-24 bg-background text-primary-foreground relative overflow-hidden">
+  <section id="impact" className="py-24 bg-background text-foreground relative overflow-hidden">
     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, hsl(210 90% 45%), transparent 60%)" }} />
     <div className="container relative z-10">
       <div className="text-center mb-16">

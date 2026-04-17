@@ -31,7 +31,7 @@ const ProjectsSection = () => (
     <div className="container">
       <div className="text-center mb-16">
         <span className="text-secondary font-semibold text-sm uppercase tracking-wider">Our Track Record</span>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-primary-foreground">Key Projects & Milestones</h2>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-foreground">Key Projects & Milestones</h2>
       </div>
 
       {/* Stats */}
@@ -49,24 +49,24 @@ const ProjectsSection = () => (
 
       {/* Milestones Timeline */}
       <div className="max-w-3xl mx-auto mb-16">
-        <h3 className="text-2xl font-display font-bold text-center mb-10 text-primary-foreground">Milestones</h3>
+        <h3 className="text-2xl font-display font-bold text-center mb-10 text-foreground">Milestones</h3>
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 md:-translate-x-px" />
           {milestones.map((m, i) => (
             <div key={m.year} className={`relative flex items-start mb-10 last:mb-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
               <div className={`hidden md:block w-1/2 ${i % 2 === 0 ? "pr-10 text-right" : "pl-10 text-left"}`}>
                 <div className="bg-card backdrop-blur rounded-xl p-5 border border-border inline-block text-left">
-                  <h4 className="font-display font-bold text-lg text-primary-foreground">{m.title}</h4>
+                  <h4 className="font-display font-bold text-lg text-foreground">{m.title}</h4>
                   <p className="text-muted-foreground text-sm mt-1">{m.desc}</p>
                 </div>
               </div>
               <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center -translate-x-1/2 z-10">
-                <span className="text-primary-foreground text-xs font-bold">{m.year.slice(2)}</span>
+                <span className="text-foreground text-xs font-bold">{m.year.slice(2)}</span>
               </div>
               <div className="ml-14 md:hidden">
                 <div className="bg-card backdrop-blur rounded-xl p-5 border border-border">
                   <span className="text-secondary font-semibold text-sm">{m.year}</span>
-                  <h4 className="font-display font-bold text-lg text-primary-foreground">{m.title}</h4>
+                  <h4 className="font-display font-bold text-lg text-foreground">{m.title}</h4>
                   <p className="text-muted-foreground text-sm mt-1">{m.desc}</p>
                 </div>
               </div>
@@ -79,7 +79,7 @@ const ProjectsSection = () => (
       </div>
 
       {/* Project List */}
-      <h3 className="text-2xl font-display font-bold text-center mb-8 text-primary-foreground">Project Portfolio</h3>
+      <h3 className="text-2xl font-display font-bold text-center mb-8 text-foreground">Project Portfolio</h3>
       <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
         {projects.map(p => (
           <div key={p.name} className="bg-card backdrop-blur rounded-xl p-5 border border-border hover:border-secondary/40 transition-all">
@@ -91,7 +91,7 @@ const ProjectsSection = () => (
                 {p.status === "completed" ? "Completed" : "Ongoing"}
               </span>
             </div>
-            <h4 className="font-display font-semibold text-sm text-primary-foreground">{p.name}</h4>
+            <h4 className="font-display font-semibold text-sm text-foreground">{p.name}</h4>
           </div>
         ))}
       </div>

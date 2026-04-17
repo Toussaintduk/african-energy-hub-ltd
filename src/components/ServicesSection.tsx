@@ -14,7 +14,7 @@ const ServicesSection = () => (
     <div className="container">
       <div className="text-center mb-16">
         <span className="text-secondary font-semibold text-sm uppercase tracking-wider">What We Do</span>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-primary-foreground">Our Services</h2>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-foreground">Our Services</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {services.map(s => (
@@ -27,7 +27,7 @@ const ServicesSection = () => (
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-5">
                 <s.icon className="h-6 w-6 text-primary-foreground" />
               </div>
-              <h3 className="font-display font-bold text-xl mb-3 text-primary-foreground">{s.title}</h3>
+              <h3 className="font-display font-bold text-xl mb-3 text-foreground">{s.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>
           </div>
