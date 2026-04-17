@@ -1,10 +1,13 @@
-import { Zap, Building2, Leaf, BarChart3, Globe, Users, Lightbulb, TreePine } from "lucide-react";
-import sdgWheel from "@/assets/sdg-wheel.png";
+import { Leaf, BarChart3, Users, Lightbulb, TreePine } from "lucide-react";
+import sdgWheel from "@/assets/sdg-wheel.webp";
+import sdg7 from "@/assets/sdg-7.png";
+import sdg9 from "@/assets/sdg-9.png";
+import sdg11 from "@/assets/sdg-11.png";
 
 const sdgs = [
-  { num: 7, title: "Affordable & Clean Energy", desc: "Promoting reliable and sustainable energy solutions across Rwanda.", icon: Zap, color: "bg-secondary" },
-  { num: 9, title: "Industry, Innovation & Infrastructure", desc: "Developing strong electrical infrastructure for industrial growth.", icon: Building2, color: "bg-primary" },
-  { num: 11, title: "Sustainable Cities & Communities", desc: "Supporting safe and sustainable urban electrical systems.", icon: Globe, color: "bg-accent" },
+  { num: 7, title: "Affordable & Clean Energy", desc: "Promoting reliable and sustainable energy solutions across Rwanda.", img: sdg7 },
+  { num: 9, title: "Industry, Innovation & Infrastructure", desc: "Developing strong electrical infrastructure for industrial growth.", img: sdg9 },
+  { num: 11, title: "Sustainable Cities & Communities", desc: "Supporting safe and sustainable urban electrical systems.", img: sdg11 },
 ];
 
 const rwandaGoals = [
@@ -27,15 +30,14 @@ const SDGSection = () => (
 
       {/* SDG Wheel image */}
       <div className="flex justify-center mb-12">
-        <img src={sdgWheel} alt="UN Sustainable Development Goals" width={200} height={200} loading="lazy" className="w-48 h-48 object-contain" />
+        <img src={sdgWheel} alt="UN Sustainable Development Goals wheel" width={320} height={220} loading="lazy" className="w-72 md:w-80 h-auto object-contain" />
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 mb-24">
         {sdgs.map(s => (
-          <div key={s.num} className="relative bg-card backdrop-blur rounded-2xl p-8 border border-border overflow-hidden group hover:border-secondary/40 transition-all">
-            <div className={`absolute top-0 right-0 w-20 h-20 ${s.color} opacity-10 rounded-bl-full`} />
-            <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-5">
-              <s.icon className="h-7 w-7 text-primary-foreground" />
+          <div key={s.num} className="bg-card rounded-2xl p-8 border border-border hover:border-secondary/40 hover:shadow-elevated transition-all">
+            <div className="flex justify-center mb-5">
+              <img src={s.img} alt={`UN SDG ${s.num}: ${s.title}`} loading="lazy" className="h-32 w-32 object-contain" />
             </div>
             <span className="text-secondary font-display font-bold text-sm">SDG {s.num}</span>
             <h3 className="font-display font-bold text-xl mt-1 mb-3 text-foreground">{s.title}</h3>
