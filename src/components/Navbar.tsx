@@ -8,9 +8,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border shadow-sm">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-24">
         <a href="#" className="flex items-center gap-3 font-display font-bold text-lg text-foreground">
-          <img src={logo} alt="African Energy Hub Ltd logo" width={64} height={64} className="h-16 w-16 object-contain" />
+          <img src={logo} alt="African Energy Hub Ltd logo" width={96} height={96} className="h-20 w-20 md:h-24 md:w-24 object-contain" />
           <span className="hidden sm:inline">African Energy Hub Ltd</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
