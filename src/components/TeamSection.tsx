@@ -70,8 +70,8 @@ const TeamSection = () => (
                 src={t.img}
                 alt={t.name}
                 loading="lazy"
-                style={{ objectPosition: t.objectPosition }}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                style={{ objectPosition: t.objectPosition, objectFit: (t as any).objectFit ?? "cover" }}
+                className="w-full h-full group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-5">
