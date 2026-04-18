@@ -22,7 +22,8 @@ const team = [
     email: "Mizerotheophile@gmail.com",
     phone: "+250 788 608 320",
     bio: "Leads company operations and strategic direction, ensuring excellence in every project we deliver.",
-    objectPosition: "center 25%",
+    objectPosition: "center top",
+    objectFit: "contain" as const,
   },
   {
     name: "Jean D'Amour BAPFAKURERA",
