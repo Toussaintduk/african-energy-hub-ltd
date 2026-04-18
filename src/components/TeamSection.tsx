@@ -2,6 +2,7 @@ import teamManzi from "@/assets/team-manzi.jpeg";
 import teamMizero from "@/assets/team-mizero.jpeg";
 import teamDamour from "@/assets/team-damour.jpeg";
 import teamBimenyimana from "@/assets/team-bimenyimana.jpeg";
+import teamDukundimana from "@/assets/team-dukundimana.jpg";
 import { Mail, Phone } from "lucide-react";
 
 const team = [
@@ -12,6 +13,7 @@ const team = [
     email: "manzi.philbert@gmail.com",
     phone: "+250 788 644 271",
     bio: "Visionary leader driving African Energy Hub's growth and strategic partnerships across Rwanda's energy sector.",
+    objectPosition: "center 20%",
   },
   {
     name: "MIZERO Theophile",
@@ -20,6 +22,7 @@ const team = [
     email: "Mizerotheophile@gmail.com",
     phone: "+250 788 608 320",
     bio: "Leads company operations and strategic direction, ensuring excellence in every project we deliver.",
+    objectPosition: "center 15%",
   },
   {
     name: "Jean D'Amour BAPFAKURERA",
@@ -28,6 +31,16 @@ const team = [
     email: "damour015@gmail.com",
     phone: "+250 788 795 516",
     bio: "Oversees day-to-day operations and drives operational excellence across all business functions.",
+    objectPosition: "center 15%",
+  },
+  {
+    name: "DUKUNDIMANA Toussaint",
+    role: "Project Control Engineer",
+    img: teamDukundimana,
+    email: "dukundesaint@gmail.com",
+    phone: "+250 790 466 267",
+    bio: "Plans, monitors and controls project schedules, costs and quality to ensure on-time, on-budget delivery.",
+    objectPosition: "center 15%",
   },
   {
     name: "Jean De Dieu BIMENYIMANA",
@@ -36,6 +49,7 @@ const team = [
     email: "bimenyimanajeandedieu070@gmail.com",
     phone: "+250 788 936 847",
     bio: "Supervises on-site electrical installations ensuring safety, quality, and timely project delivery.",
+    objectPosition: "center 15%",
   },
 ];
 
@@ -47,11 +61,17 @@ const TeamSection = () => (
         <h2 className="text-3xl md:text-4xl font-display font-bold mt-3">Meet the Team</h2>
         <p className="text-muted-foreground mt-4 max-w-xl mx-auto">Dedicated professionals committed to powering Rwanda's energy future.</p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-7xl mx-auto">
         {team.map(t => (
           <div key={t.name} className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
             <div className="aspect-square overflow-hidden bg-muted">
-              <img src={t.img} alt={t.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src={t.img}
+                alt={t.name}
+                loading="lazy"
+                style={{ objectPosition: t.objectPosition }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
             <div className="p-5">
               <h3 className="font-display font-bold text-lg leading-tight">{t.name}</h3>
