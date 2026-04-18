@@ -38,7 +38,9 @@ const PartnersSection = () => (
         <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Our Certifications</h3>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
           {certifications.map((c) => (
-            <img key={c.alt} src={c.src} alt={c.alt} loading="lazy" className="h-20 md:h-24 w-auto object-contain grayscale-0 hover:scale-105 transition-transform" />
+            <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-28 md:h-32 w-44 md:w-52 shadow-card border border-border hover:shadow-elevated transition-shadow">
+              <img src={c.src} alt={c.alt} loading="lazy" className="max-h-full max-w-full object-contain" />
+            </div>
           ))}
         </div>
       </div>
