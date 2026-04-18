@@ -19,8 +19,8 @@ const ServicesSection = () => (
       <div className="grid md:grid-cols-3 gap-8">
         {services.map(s => (
           <div key={s.num} className="group bg-card backdrop-blur rounded-xl overflow-hidden border border-border hover:border-secondary/40 hover:-translate-y-1 transition-all duration-300">
-            <div className="h-48 overflow-hidden">
-              <img src={s.image} alt={s.title} width={1280} height={720} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="h-48 overflow-hidden bg-muted flex items-center justify-center">
+              <img src={s.image} alt={s.title} width={1280} height={720} loading="lazy" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="p-8">
               <span className="text-5xl font-display font-bold text-secondary/15 block mb-4">{s.num}</span>
