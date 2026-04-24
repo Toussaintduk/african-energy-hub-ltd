@@ -7,15 +7,6 @@ import { Mail, Phone } from "lucide-react";
 
 const team = [
   {
-    name: "MANZI Philibert",
-    role: "Chief Executive Officer",
-    img: teamManzi,
-    email: "manzi.philbert@gmail.com",
-    phone: "+250 788 644 271",
-    bio: "Visionary leader driving African Energy Hub's growth and strategic partnerships across Rwanda's energy sector.",
-    objectPosition: "center 20%",
-  },
-  {
     name: "MIZERO Theophile",
     role: "Managing Director",
     img: teamMizero,
@@ -24,6 +15,15 @@ const team = [
     bio: "Leads company operations and strategic direction, ensuring excellence in every project we deliver.",
     objectPosition: "center top",
     objectFit: "contain" as const,
+  },
+  {
+    name: "MANZI Philibert",
+    role: "Chief Executive Officer",
+    img: teamManzi,
+    email: "manzi.philbert@gmail.com",
+    phone: "+250 788 644 271",
+    bio: "Visionary leader driving African Energy Hub's growth and strategic partnerships across Rwanda's energy sector.",
+    objectPosition: "center 20%",
   },
   {
     name: "Jean D'Amour BAPFAKURERA",
