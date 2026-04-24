@@ -1,4 +1,5 @@
 import { CheckCircle, Clock, MapPin, FolderOpen } from "lucide-react";
+import RwandaMap from "./RwandaMap";
 
 const stats = [
   { icon: FolderOpen, value: "26", label: "Total Projects" },
@@ -45,6 +46,17 @@ const ProjectsSection = () => (
             <p className="text-muted-foreground text-sm mt-1">{s.label}</p>
           </div>
         ))}
+      </div>
+
+      {/* Geographic Footprint */}
+      <div className="mb-16">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-display font-bold text-foreground">Our Geographic Footprint</h3>
+          <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto">
+            Hover or tap a district to see project activity across Rwanda.
+          </p>
+        </div>
+        <RwandaMap />
       </div>
 
       {/* Milestones Timeline */}
