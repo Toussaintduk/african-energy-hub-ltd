@@ -1,4 +1,5 @@
-import { Zap, Cpu, BatteryCharging } from "lucide-react";
+import { Zap, Cpu, BatteryCharging, Users } from "lucide-react";
+import siteVisitSinohydro from "@/assets/site-visit-sinohydro-reg.jpg";
 import mvWorkers from "@/assets/site-mv-workers-action.jpg";
 import mvSafety from "@/assets/site-mv-safety.jpg";
 import mvRehab from "@/assets/site-mv-rehabilitation.jpg";
@@ -38,6 +39,14 @@ const categories = [
     photos: [
       { src: evKabisa, alt: "EV charger powering at KABISA HQ" },
       { src: evRoyal, alt: "DC EV fast charger energized at Royal Kicukiro" },
+    ],
+  },
+  {
+    icon: Users,
+    title: "Site Visits & Project Coordination",
+    desc: "Joint site inspections and coordination meetings with partners and utility stakeholders to ensure quality delivery.",
+    photos: [
+      { src: siteVisitSinohydro, alt: "Joint site visit with Sinohydro team, REG BM Kicukiro and African Energy Hub team" },
     ],
   },
 ];
