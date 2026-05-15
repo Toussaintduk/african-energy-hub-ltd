@@ -18,6 +18,8 @@ import woodenPoles from "@/assets/site-wooden-poles-gahanga.jpg";
 import terminalKabisa from "@/assets/site-terminal-kabisa.jpg";
 import transformerKabisa from "@/assets/site-transformer-kabisa.jpg";
 import concretePoleTruck from "@/assets/site-concrete-pole-truck.jpg";
+import kabisaCrewPole from "@/assets/site-kabisa-crew-pole.jpg";
+import gahangaPeggingSinohydro from "@/assets/site-gahanga-pegging-sinohydro.jpg";
 
 const categories = [
   {
@@ -33,24 +35,26 @@ const categories = [
   },
   {
     icon: HardHat,
-    title: "LV Network Upgrade — Gahanga",
-    desc: "Pegging, pole supply and low-voltage network upgrade works delivered for the Gahanga / Rwinanka community.",
+    title: "LV Network Upgrade — Gahanga (Rwinanka, Rwabutege, Sabaganga)",
+    desc: "Pegging, pole supply and low-voltage network upgrade works delivered across Gahanga sites — Rwinanka, Rwabutege and Sabaganga — together with our partners.",
     photos: [
-      { src: pegging1, alt: "Pegging activities for new poles at Gahanga LV network upgrade project" },
-      { src: pegging2, alt: "AEH surveyors marking pole positions in Gahanga LV upgrade project" },
+      { src: pegging1, alt: "Pegging activities for new poles at Gahanga Rwinanka site" },
+      { src: pegging2, alt: "AEH surveyors marking pole positions at Gahanga Rwabutege site" },
+      { src: gahangaPeggingSinohydro, alt: "Gahanga site pegging activities of poles with Sinohydro team at Sabaganga" },
       { src: woodenPoles, alt: "Incoming wooden poles delivered for Gahanga / Rwinanka LV upgrade project" },
-      { src: concretePoleTruck, alt: "AEH crew installing a concrete pole using a truck-mounted crane" },
+      { src: concretePoleTruck, alt: "AEH crew installing a concrete pole using a truck-mounted crane at Gahanga Sabaganga" },
     ],
   },
   {
     icon: Cpu,
-    title: "Switchgear Installation & Testing",
-    desc: "Supply, installation, commissioning and testing of LV/MV switchgear panels for industrial clients.",
+    title: "Switchgear & Transformer Installation & Testing",
+    desc: "Supply, installation, commissioning and testing of LV/MV switchgear panels and distribution transformers for industrial clients.",
     photos: [
       { src: swVplus, alt: "Switchgear installation at V Plus Packaging Material" },
       { src: swPanel, alt: "Completed switchgear panel and transformer room" },
       { src: trInstall, alt: "Distribution transformer installation by AEH crew" },
       { src: transformerKabisa, alt: "Transformer installation on MV pole at Kabisa, Kacyiru" },
+      { src: kabisaCrewPole, alt: "AEH crew terminating MV cables on transformer pole at Kabisa, Kacyiru" },
     ],
   },
   {
@@ -123,9 +127,6 @@ const SiteActivitiesSection = () => (
                   {/* Accent bar */}
                   <div className="absolute left-0 top-0 h-full w-1 bg-secondary scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
                   <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                    <span className="inline-block mb-2 px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-bold uppercase tracking-wider">
-                      AEH
-                    </span>
                     <p className="text-sm md:text-base font-semibold text-white leading-snug drop-shadow-lg">
                       {p.alt}
                     </p>
