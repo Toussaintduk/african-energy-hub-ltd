@@ -27,7 +27,7 @@ const team = [
   },
   {
     name: "Jean D'Amour BAPFAKURERA",
-    role: "Chief Operational Manager",
+    role: "Chief Operational Officer",
     img: teamDamour,
     email: "damour015@gmail.com",
     phone: "+250 788 795 516",
@@ -42,6 +42,7 @@ const team = [
     phone: "+250 788 936 847",
     bio: "Supervises on-site electrical installations ensuring safety, quality, and timely project delivery.",
     objectPosition: "center 15%",
+    objectFit: "contain" as const,
   },
   {
     name: "DUKUNDIMANA Toussaint",
