@@ -7,7 +7,7 @@ const AboutSection = () => (
         <span className="text-primary font-semibold text-sm uppercase tracking-wider">About Us</span>
         <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 mb-6">Reliable Energy Solutions in Rwanda</h2>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          African Energy Hub Ltd is a registered Rwandan company specializing in the supply, sale, and installation of electrical materials and equipment. With over two years of experience, we serve public institutions, private organizations, and individuals with professional energy solutions.
+          African Energy Hub Ltd is a registered Rwandan company Professional supply, installation, and maintenance of electrical LV to HV facilities and power equipments for public institutions, private organizations, and individuals. With over two years of experience, we serve public institutions, private organizations, and individuals with professional energy solutions.
         </p>
         <p className="text-muted-foreground text-base leading-relaxed mt-5">
           We are officially <span className="font-semibold text-foreground">certified by the Rwanda Utilities Regulatory Authority (RURA) under Category C in Electrical Installation</span>, and our work is led by professionals registered with the <span className="font-semibold text-foreground">Institute of Engineering Rwanda (IER)</span> — a guarantee of quality, safety, and compliance on every project we deliver.
