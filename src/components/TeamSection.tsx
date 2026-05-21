@@ -27,7 +27,7 @@ const team = [
   },
   {
     name: "Jean D'Amour BAPFAKURERA",
-    role: "Chief Operational Officer",
+    role: "Chief Operations Officer",
     img: teamDamour,
     email: "damour015@gmail.com",
     phone: "+250 788 795 516",
