@@ -7,16 +7,6 @@ import { Mail, Phone } from "lucide-react";
 
 const team = [
   {
-    name: "MIZERO Theophile",
-    role: "Managing Director",
-    img: teamMizero,
-    email: "Mizerotheophile@gmail.com",
-    phone: "+250 788 608 320",
-    bio: "Leads company operations and strategic direction, ensuring excellence in every project we deliver.",
-    objectPosition: "center top",
-    objectFit: "contain" as const,
-  },
-  {
     name: "MANZI Philibert",
     role: "Chief Executive Officer",
     img: teamManzi,
@@ -33,6 +23,16 @@ const team = [
     phone: "+250 788 795 516",
     bio: "Oversees day-to-day operations and drives operational excellence across all business functions.",
     objectPosition: "center 15%",
+  },
+  {
+    name: "MIZERO Theophile",
+    role: "Managing Director",
+    img: teamMizero,
+    email: "Mizerotheophile@gmail.com",
+    phone: "+250 788 608 320",
+    bio: "Leads company operations and strategic direction, ensuring excellence in every project we deliver.",
+    objectPosition: "center top",
+    objectFit: "contain" as const,
   },
   {
     name: "Jean De Dieu BIMENYIMANA",
