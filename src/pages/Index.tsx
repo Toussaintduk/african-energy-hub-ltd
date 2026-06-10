@@ -10,20 +10,21 @@ import ImpactSection from "@/components/ImpactSection";
 import SiteActivitiesSection from "@/components/SiteActivitiesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 const Index = () => (
   <div className="min-h-screen">
     <Navbar />
     <HeroSection />
-      <AboutSection />
-      <PartnersSection />
-      <ServicesSection />
-    <ValuesSection />
-    <TeamSection />
-    <SDGSection />
-    <ImpactSection />
-    <SiteActivitiesSection />
-    <ContactSection />
+    <Reveal><AboutSection /></Reveal>
+    <Reveal direction="fade"><PartnersSection /></Reveal>
+    <Reveal><ServicesSection /></Reveal>
+    <Reveal direction="left"><ValuesSection /></Reveal>
+    <Reveal><TeamSection /></Reveal>
+    <Reveal direction="right"><SDGSection /></Reveal>
+    <Reveal><ImpactSection /></Reveal>
+    <Reveal><SiteActivitiesSection /></Reveal>
+    <Reveal direction="fade"><ContactSection /></Reveal>
     <Footer />
   </div>
 );
