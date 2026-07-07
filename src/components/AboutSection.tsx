@@ -7,13 +7,13 @@ const AboutSection = () => (
         <span className="text-primary font-semibold text-sm uppercase tracking-wider">About Us</span>
         <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 mb-6">Reliable Energy Solutions in Rwanda</h2>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          African Energy Hub Ltd is a registered Rwandan company Professional supply, installation, and maintenance of electrical LV to HV facilities and power equipments for public institutions, private organizations, and individuals. With over two years of experience, we serve public institutions, private organizations, and individuals with professional energy solutions.
+          <strong className="text-foreground">African Energy Hub</strong> Ltd is a registered Rwandan company delivering professional supply, <a href="#services" className="text-primary hover:underline">installation, and maintenance</a> of electrical LV to HV facilities and power equipment for public institutions, private organizations, and individuals. With over two years of experience, African Energy Hub serves clients across Rwanda with reliable energy solutions.
         </p>
         <p className="text-muted-foreground text-base leading-relaxed mt-5">
-          We are officially <span className="font-semibold text-foreground">certified by the Rwanda Utilities Regulatory Authority (RURA) under Category C in Electrical Installation</span>, and our work is led by professionals registered with the <span className="font-semibold text-foreground">Institute of Engineering Rwanda (IER)</span> — a guarantee of quality, safety, and compliance on every project we deliver.
+          African Energy Hub is officially <span className="font-semibold text-foreground">certified by the Rwanda Utilities Regulatory Authority (RURA) under Category C in Electrical Installation</span>, and our work is led by <a href="#team" className="text-primary hover:underline">professionals registered with the Institute of Engineering Rwanda (IER)</a> — a guarantee of quality, safety, and compliance on every project we deliver.
         </p>
         <p className="text-muted-foreground text-base leading-relaxed mt-4">
-          We have proudly partnered with leading organizations including <span className="font-semibold text-foreground">REG/EUCL, KABISA, RITCO, Solid Africa, Volkswagen Rwanda, Gorilla Feed, and V Plus Packaging Industries</span>.
+          We have proudly partnered with leading organizations including <span className="font-semibold text-foreground">REG/EUCL, KABISA, RITCO, Solid Africa, Volkswagen Rwanda, Gorilla Feed, and V Plus Packaging Industries</span>. <a href="#contact" className="text-primary hover:underline font-medium">Get in touch with African Energy Hub →</a>
         </p>
       </div>
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
