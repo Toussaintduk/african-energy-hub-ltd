@@ -11,7 +11,7 @@ const HeroSection = () => (
       <div className="max-w-2xl">
         <span className="inline-block bg-gradient-warm text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6 animate-fade-up">Quick Energy Service Delivery</span>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          Powering Rwanda's <span className="text-secondary">Energy Future</span>
+          African Energy Hub — Powering Rwanda's <span className="text-secondary">Energy Future</span>
         </h1>
         <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Professional supply, installation, and maintenance of electrical materials and equipment for public institutions, private organizations, and individuals.
