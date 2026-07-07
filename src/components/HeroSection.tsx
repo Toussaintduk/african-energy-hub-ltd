@@ -14,7 +14,7 @@ const HeroSection = () => (
           African Energy Hub — Powering Rwanda's <span className="text-secondary">Energy Future</span>
         </h1>
         <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          Professional supply, installation, and maintenance of electrical materials and equipment for public institutions, private organizations, and individuals.
+          African Energy Hub Ltd delivers professional supply, installation, and maintenance of electrical LV–HV materials and power equipment for public institutions, private organizations, and individuals across Rwanda.
         </p>
         <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <a href="#services" className="bg-gradient-primary text-primary-foreground px-8 py-3.5 rounded-lg font-semibold flex items-center gap-2 hover:opacity-90 transition-opacity">
