@@ -4,7 +4,6 @@ import spiroStation from "@/assets/site-spiro-station.jpg";
 import spiroDistribution from "@/assets/site-spiro-distribution.jpg";
 import spiroMvLine from "@/assets/site-spiro-mv-line.jpg";
 
-
 type SiteOperation = {
   num: string;
   client: string;
@@ -13,7 +12,7 @@ type SiteOperation = {
   period: string;
   scope: string[];
   sites: { name: string; detail: string }[];
-  photos: { src: string; alt: string; tag: string }[];
+  photos: { src: string; alt: string }[];
 };
 
 const operations: SiteOperation[] = [
@@ -38,20 +37,16 @@ const operations: SiteOperation[] = [
       {
         src: spiroStation,
         alt: "SpirO Mega Station battery-swapping bay in Kigali running on power supplied by African Energy Hub Ltd",
-        tag: "SpirO Mega Station — Kigali",
       },
       {
         src: spiroDistribution,
         alt: "MV distribution pillars and cable terminations installed by AEH at a SpirO Mega Station",
-        tag: "MV distribution & cable terminations",
       },
       {
         src: spiroMvLine,
         alt: "AEH technicians working on the medium-voltage line and transformer feeding a SpirO Mega Station",
-        tag: "MV line & transformer works",
       },
     ],
-
   },
 ];
 
@@ -66,8 +61,8 @@ const SiteOperationsSection = () => (
           Operations We Run On Site
         </h2>
         <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
-          Medium-voltage lines, transformer installation and energization — delivered
-          end to end for clients across Rwanda.
+          Medium-voltage lines, transformer installation and energization — delivered end
+          to end for clients across Rwanda.
         </p>
       </div>
 
@@ -83,36 +78,34 @@ const SiteOperationsSection = () => (
           >
             <div className="grid lg:grid-cols-2">
               {/* Photo collage */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 md:p-6 lg:p-8">
-                <div className="col-span-1 sm:col-span-2 overflow-hidden rounded-xl">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 p-4 md:p-6 lg:p-8">
+                <div className="col-span-2 overflow-hidden rounded-xl">
                   <img
                     src={op.photos[0].src}
                     alt={op.photos[0].alt}
                     loading="lazy"
-                    className="h-[300px] sm:h-[420px] md:h-[520px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                    className="h-[280px] sm:h-[380px] lg:h-[460px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
-                <div className="col-span-1 sm:col-span-1 flex flex-col gap-3 sm:gap-4">
-                  {op.photos.slice(1).map((p) => (
-                    <div key={p.src} className="overflow-hidden rounded-xl">
-                      <img
-                        src={p.src}
-                        alt={p.alt}
-                        loading="lazy"
-                        className="h-[144px] sm:h-[204px] md:h-[252px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-                      />
-                    </div>
-                  ))}
-                </div>
+                {op.photos.slice(1).map((p) => (
+                  <div key={p.src} className="overflow-hidden rounded-xl">
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      className="h-[130px] sm:h-[180px] lg:h-[220px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  </div>
+                ))}
               </div>
 
               {/* Details */}
               <div className="p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-center">
                 <div className="flex flex-wrap items-center gap-4 mb-5">
-                  <span className="text-5xl md:text-6xl font-display font-bold text-secondary/25 leading-none">
+                  <span className="text-5xl md:text-6xl font-display font-bold leading-none text-gradient-primary">
                     {op.num}
                   </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-3 py-1 text-xs font-semibold text-primary-foreground">
                     <CalendarDays className="h-3.5 w-3.5" />
                     {op.period}
                   </span>
@@ -121,8 +114,10 @@ const SiteOperationsSection = () => (
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-primary-foreground">
                   {op.client}
                 </h3>
-                <p className="text-secondary font-semibold mt-1 md:text-lg">{op.caption}</p>
-                <p className="text-primary-foreground/70 leading-relaxed mt-4 text-sm md:text-base">
+                <p className="text-gradient-primary font-display font-semibold mt-1 md:text-lg">
+                  {op.caption}
+                </p>
+                <p className="text-primary-foreground/75 leading-relaxed mt-4 text-sm md:text-base">
                   {op.desc}
                 </p>
 
@@ -133,10 +128,10 @@ const SiteOperationsSection = () => (
                       className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2"
                     >
                       <span className="flex items-center gap-2 text-sm font-medium text-primary-foreground">
-                        <MapPin className="h-4 w-4 shrink-0 text-secondary" />
+                        <MapPin className="h-4 w-4 shrink-0 text-primary-foreground/60" />
                         {s.name}
                       </span>
-                      <span className="text-xs font-semibold text-secondary whitespace-nowrap">
+                      <span className="text-xs font-bold text-primary-foreground whitespace-nowrap">
                         {s.detail}
                       </span>
                     </li>
@@ -147,9 +142,9 @@ const SiteOperationsSection = () => (
                   {op.scope.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-primary-foreground/70"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-primary-foreground/80"
                     >
-                      <Zap className="h-3 w-3 text-secondary" />
+                      <Zap className="h-3 w-3 text-primary-foreground/60" />
                       {s}
                     </span>
                   ))}
