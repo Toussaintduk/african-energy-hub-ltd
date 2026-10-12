@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { CalendarDays, MapPin, Zap } from "lucide-react";
-import spiroStation from "@/assets/site-spiro-station.jpg.asset.json";
-import spiroDistribution from "@/assets/site-spiro-distribution.jpg.asset.json";
-import spiroMvLine from "@/assets/site-spiro-mv-line.jpg.asset.json";
+import spiroStation from "@/assets/site-spiro-station.jpg";
+import spiroDistribution from "@/assets/site-spiro-distribution.jpg";
+import spiroMvLine from "@/assets/site-spiro-mv-line.jpg";
+
 
 type SiteOperation = {
   num: string;
