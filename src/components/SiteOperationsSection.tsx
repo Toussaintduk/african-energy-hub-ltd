@@ -51,22 +51,22 @@ const operations: SiteOperation[] = [
 ];
 
 const SiteOperationsSection = () => (
-  <section id="operations" className="py-24 bg-muted/30">
+  <section id="operations" className="py-24 bg-background">
     <div className="container">
       <div className="text-center mb-14">
-        <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
-          Site Operations
+        <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          Recent Work
         </span>
         <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
-          Operations We Run On Site
+          Project Updates
         </h2>
         <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
-          Medium-voltage lines, transformer installation and energization — delivered end
-          to end for clients across Rwanda.
+          The latest projects we have delivered on site across Rwanda — from
+          medium-voltage lines to transformer installation and energization.
         </p>
       </div>
 
-      <div className="space-y-12 max-w-6xl mx-auto">
+      <div className="space-y-10 max-w-5xl mx-auto">
         {operations.map((op, idx) => (
           <motion.article
             key={op.num}
@@ -74,17 +74,17 @@ const SiteOperationsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: idx * 0.08 }}
-            className="overflow-hidden rounded-2xl border border-border bg-energy-dark shadow-elevated"
+            className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
             <div className="grid lg:grid-cols-2">
               {/* Photo collage */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 p-4 md:p-6 lg:p-8">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 p-4 md:p-5 bg-muted/40">
                 <div className="col-span-2 overflow-hidden rounded-xl">
                   <img
                     src={op.photos[0].src}
                     alt={op.photos[0].alt}
                     loading="lazy"
-                    className="h-[280px] sm:h-[380px] lg:h-[460px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                    className="aspect-[16/9] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
                 {op.photos.slice(1).map((p) => (
@@ -93,14 +93,14 @@ const SiteOperationsSection = () => (
                       src={p.src}
                       alt={p.alt}
                       loading="lazy"
-                      className="h-[130px] sm:h-[180px] lg:h-[220px] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                      className="aspect-[16/10] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
                 ))}
               </div>
 
               {/* Details */}
-              <div className="p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-center">
+              <div className="p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l border-border flex flex-col justify-center">
                 <div className="flex flex-wrap items-center gap-4 mb-5">
                   <span className="text-5xl md:text-6xl font-display font-bold leading-none text-gradient-primary">
                     {op.num}
@@ -111,13 +111,13 @@ const SiteOperationsSection = () => (
                   </span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-primary-foreground">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
                   {op.client}
                 </h3>
                 <p className="text-gradient-primary font-display font-semibold mt-1 md:text-lg">
                   {op.caption}
                 </p>
-                <p className="text-primary-foreground/75 leading-relaxed mt-4 text-sm md:text-base">
+                <p className="text-muted-foreground leading-relaxed mt-4 text-sm md:text-base">
                   {op.desc}
                 </p>
 
@@ -125,13 +125,13 @@ const SiteOperationsSection = () => (
                   {op.sites.map((s) => (
                     <li
                       key={s.name}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                      className="flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 px-3 py-2"
                     >
-                      <span className="flex items-center gap-2 text-sm font-medium text-primary-foreground">
-                        <MapPin className="h-4 w-4 shrink-0 text-primary-foreground/60" />
+                      <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+                        <MapPin className="h-4 w-4 shrink-0 text-primary" />
                         {s.name}
                       </span>
-                      <span className="text-xs font-bold text-primary-foreground whitespace-nowrap">
+                      <span className="text-xs font-bold text-foreground whitespace-nowrap">
                         {s.detail}
                       </span>
                     </li>
@@ -142,9 +142,9 @@ const SiteOperationsSection = () => (
                   {op.scope.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-primary-foreground/80"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs text-muted-foreground"
                     >
-                      <Zap className="h-3 w-3 text-primary-foreground/60" />
+                      <Zap className="h-3 w-3 text-primary" />
                       {s}
                     </span>
                   ))}
