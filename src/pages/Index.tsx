@@ -8,7 +8,9 @@ import TeamSection from "@/components/TeamSection";
 import SDGSection from "@/components/SDGSection";
 import ImpactSection from "@/components/ImpactSection";
 import SiteActivitiesSection from "@/components/SiteActivitiesSection";
+import SiteOperationsSection from "@/components/SiteOperationsSection";
 import ContactSection from "@/components/ContactSection";
+
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
@@ -24,7 +26,9 @@ const Index = () => (
     <Reveal direction="right"><SDGSection /></Reveal>
     <Reveal><ImpactSection /></Reveal>
     <Reveal><SiteActivitiesSection /></Reveal>
+    <Reveal><SiteOperationsSection /></Reveal>
     <Reveal direction="fade"><ContactSection /></Reveal>
+
     <Footer />
   </div>
 );
