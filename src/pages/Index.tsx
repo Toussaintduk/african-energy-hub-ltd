@@ -26,6 +26,8 @@ const Index = () => (
     <Reveal direction="right"><SDGSection /></Reveal>
     <Reveal><ImpactSection /></Reveal>
     <Reveal><SiteActivitiesSection /></Reveal>
+    <Reveal><SiteOperationsSection /></Reveal>
+
     <Reveal direction="fade"><ContactSection /></Reveal>
     <Footer />
   </div>
