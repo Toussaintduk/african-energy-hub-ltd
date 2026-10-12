@@ -90,8 +90,7 @@ const operations: SiteOperation[] = [
   },
 ];
 
-const stripClass = (n: number) =>
-  n >= 5 ? "grid-cols-3 sm:grid-cols-5" : "grid-cols-3";
+const stripClass = (n: number) => (n >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3");
 
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
@@ -121,9 +120,14 @@ const SiteOperationsSection = () => (
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
             {/* Photo strip */}
-            <div className={`grid gap-2 sm:gap-3 p-3 sm:p-4 bg-muted/40 ${stripClass(op.photos.length)}`}>
+            <div
+              className={`flex sm:grid gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40 ${stripClass(op.photos.length)}`}
+            >
               {op.photos.map((p) => (
-                <div key={p.src} className="overflow-hidden rounded-lg">
+                <div
+                  key={p.src}
+                  className="w-[42%] shrink-0 sm:w-auto sm:shrink overflow-hidden rounded-lg"
+                >
                   <img
                     src={p.src}
                     alt={p.alt}
