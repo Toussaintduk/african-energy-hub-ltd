@@ -3,13 +3,17 @@ import { CalendarDays, MapPin, Zap } from "lucide-react";
 import spiroStation from "@/assets/site-spiro-station.jpg";
 import spiroDistribution from "@/assets/site-spiro-distribution.jpg";
 import spiroMvLine from "@/assets/site-spiro-mv-line.jpg";
+import kabisaSign from "@/assets/site-kabisa-sign.jpg";
+import kabisaCharger from "@/assets/site-kabisa-charger.jpg";
+import kabisaWiring from "@/assets/site-kabisa-wiring.jpg";
+import kabisaDepot from "@/assets/site-kabisa-depot.jpg";
+import kabisaCanopy from "@/assets/site-kabisa-canopy.jpg";
 
 type SiteOperation = {
-  num: string;
   client: string;
   caption: string;
   desc: string;
-  period: string;
+  period?: string;
   scope: string[];
   sites: { name: string; detail: string }[];
   photos: { src: string; alt: string }[];
@@ -17,21 +21,20 @@ type SiteOperation = {
 
 const operations: SiteOperation[] = [
   {
-    num: "01",
     client: "Spiro Mega Stations",
-    caption: "Powering Spiro Mega Stations across Kigali",
-    desc: "African Energy Hub Ltd built the medium-voltage lines and installed the transformers that supply SpirO Mega Stations in Kigali. The stations are at Rwandex (500kVA), MEREZ 2 in Gikondo (400kVA), Nyamirambo (two 400kVA) and Kinamba (630kVA). Each site now has a reliable, correctly sized power supply for daily operations.",
+    caption: "Powering Rwanda's Electric Mobility Future",
+    desc: "African Energy Hub Ltd is contributing to the acceleration of electric vehicle (EV) mobility in Rwanda by supporting the electrical infrastructure behind Spiro's EV charging network in Kigali. Our work includes medium-voltage power connections and transformer installations at multiple sites, including MEREZ 2 in Gikondo (400 kVA), Nyamirambo (2 × 400 kVA), and Kinamba (630 kVA). These installations represent a combined transformer capacity of 1,830 kVA (1.83 MVA), helping provide the reliable power infrastructure needed to support EV charging operations and Rwanda's transition toward cleaner transportation.",
     period: "July – August 2026",
     scope: [
-      "Medium-voltage line construction",
+      "Medium-voltage power connection",
       "Transformer supply & installation",
       "Site energization & commissioning",
     ],
     sites: [
-      { name: "Rwandex", detail: "500 kVA" },
       { name: "MEREZ 2, Gikondo", detail: "400 kVA" },
       { name: "Nyamirambo", detail: "2 × 400 kVA" },
       { name: "Kinamba", detail: "630 kVA" },
+      { name: "Combined capacity", detail: "1,830 kVA" },
     ],
     photos: [
       {
@@ -48,7 +51,46 @@ const operations: SiteOperation[] = [
       },
     ],
   },
+  {
+    client: "KABISA EV Charging",
+    caption: "Powering KABISA's Electric Mobility Network",
+    desc: "African Energy Hub Ltd is contributing to the expansion of electric mobility in Rwanda through electrical infrastructure supporting KABISA EV charging stations. With a 400 kVA transformer installation at the Kacyiru station and charging locations including Rwandex and Kayonza, our work helps strengthen the power infrastructure needed to support EV charging and Rwanda's transition toward cleaner transportation.",
+    scope: [
+      "Transformer supply & installation",
+      "EV charging station power supply",
+      "Site commissioning & support",
+    ],
+    sites: [
+      { name: "Kacyiru station", detail: "400 kVA" },
+      { name: "Rwandex", detail: "Charging location" },
+      { name: "Kayonza", detail: "Charging location" },
+    ],
+    photos: [
+      {
+        src: kabisaSign,
+        alt: "KABISA free EV charging point in Kigali with African Energy Hub Ltd technicians on site",
+      },
+      {
+        src: kabisaCharger,
+        alt: "KABISA DC fast EV charger commissioned with power supplied by African Energy Hub Ltd",
+      },
+      {
+        src: kabisaWiring,
+        alt: "African Energy Hub Ltd technician wiring the inside of a KABISA EV charger",
+      },
+      {
+        src: kabisaDepot,
+        alt: "Row of KABISA EV chargers installed at a multi-bay charging depot in Kigali",
+      },
+      {
+        src: kabisaCanopy,
+        alt: "KABISA EV charger under a yellow canopy powered by African Energy Hub Ltd",
+      },
+    ],
+  },
 ];
+
+const stripClass = (n: number) => (n >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3");
 
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
@@ -62,66 +104,64 @@ const SiteOperationsSection = () => (
         </h2>
         <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
           The latest projects we have delivered on site across Rwanda — from
-          medium-voltage lines to transformer installation and energization.
+          EV charging power infrastructure to medium-voltage connections and
+          transformer installation.
         </p>
       </div>
 
       <div className="space-y-10 max-w-5xl mx-auto">
         {operations.map((op, idx) => (
           <motion.article
-            key={op.num}
+            key={op.client}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: idx * 0.08 }}
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
-            <div className="grid lg:grid-cols-2">
-              {/* Photo collage */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 p-4 md:p-5 bg-muted/40">
-                <div className="col-span-2 overflow-hidden rounded-xl">
+            {/* Photo strip */}
+            <div
+              className={`flex sm:grid gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40 ${stripClass(op.photos.length)}`}
+            >
+              {op.photos.map((p) => (
+                <div
+                  key={p.src}
+                  className="w-[42%] shrink-0 sm:w-auto sm:shrink overflow-hidden rounded-lg"
+                >
                   <img
-                    src={op.photos[0].src}
-                    alt={op.photos[0].alt}
+                    src={p.src}
+                    alt={p.alt}
                     loading="lazy"
-                    className="aspect-[16/9] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                    className="aspect-[3/4] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
-                {op.photos.slice(1).map((p) => (
-                  <div key={p.src} className="overflow-hidden rounded-xl">
-                    <img
-                      src={p.src}
-                      alt={p.alt}
-                      loading="lazy"
-                      className="aspect-[16/10] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                ))}
-              </div>
+              ))}
+            </div>
 
-              {/* Details */}
-              <div className="p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l border-border flex flex-col justify-center">
-                <div className="flex flex-wrap items-center gap-4 mb-5">
-                  <span className="text-5xl md:text-6xl font-display font-bold leading-none text-gradient-primary">
-                    {op.num}
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-3 py-1 text-xs font-semibold text-primary-foreground">
-                    <CalendarDays className="h-3.5 w-3.5" />
-                    {op.period}
-                  </span>
+            {/* Details */}
+            <div className="p-5 md:p-8 grid lg:grid-cols-[1.05fr_0.95fr] gap-6 lg:gap-10">
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    {op.client}
+                  </h3>
+                  {op.period && (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-3 py-1 text-xs font-semibold text-primary-foreground">
+                      <CalendarDays className="h-3.5 w-3.5" />
+                      {op.period}
+                    </span>
+                  )}
                 </div>
-
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
-                  {op.client}
-                </h3>
                 <p className="text-gradient-primary font-display font-semibold mt-1 md:text-lg">
                   {op.caption}
                 </p>
                 <p className="text-muted-foreground leading-relaxed mt-4 text-sm md:text-base">
                   {op.desc}
                 </p>
+              </div>
 
-                <ul className="mt-6 grid sm:grid-cols-2 gap-2">
+              <div className="flex flex-col justify-center">
+                <ul className="grid sm:grid-cols-2 gap-2">
                   {op.sites.map((s) => (
                     <li
                       key={s.name}
@@ -138,7 +178,7 @@ const SiteOperationsSection = () => (
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 mt-5">
+                <div className="flex flex-wrap gap-2 mt-4">
                   {op.scope.map((s) => (
                     <span
                       key={s}
