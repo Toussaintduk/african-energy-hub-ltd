@@ -36,21 +36,22 @@ const operations: SiteOperation[] = [
     ],
     photos: [
       {
-        src: spiroStation.url,
+        src: spiroStation,
         alt: "SpirO Mega Station battery-swapping bay in Kigali running on power supplied by African Energy Hub Ltd",
         tag: "SpirO Mega Station — Kigali",
       },
       {
-        src: spiroDistribution.url,
+        src: spiroDistribution,
         alt: "MV distribution pillars and cable terminations installed by AEH at a SpirO Mega Station",
         tag: "MV distribution & cable terminations",
       },
       {
-        src: spiroMvLine.url,
+        src: spiroMvLine,
         alt: "AEH technicians working on the medium-voltage line and transformer feeding a SpirO Mega Station",
         tag: "MV line & transformer works",
       },
     ],
+
   },
 ];
 
