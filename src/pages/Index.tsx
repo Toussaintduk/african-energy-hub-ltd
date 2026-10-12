@@ -8,6 +8,8 @@ import TeamSection from "@/components/TeamSection";
 import SDGSection from "@/components/SDGSection";
 import ImpactSection from "@/components/ImpactSection";
 import SiteActivitiesSection from "@/components/SiteActivitiesSection";
+import SiteOperationsSection from "@/components/SiteOperationsSection";
+
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
