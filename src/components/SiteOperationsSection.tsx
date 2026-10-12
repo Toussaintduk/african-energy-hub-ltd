@@ -51,7 +51,7 @@ const operations: SiteOperation[] = [
 ];
 
 const SiteOperationsSection = () => (
-  <section id="operations" className="py-24 bg-background">
+  <section id="operations" className="py-24 bg-background scroll-mt-24">
     <div className="container">
       <div className="text-center mb-14">
         <span className="text-primary font-semibold text-sm uppercase tracking-wider">
