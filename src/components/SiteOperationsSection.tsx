@@ -23,7 +23,7 @@ const operations: SiteOperation[] = [
   {
     client: "Spiro Mega Stations",
     caption: "Powering Rwanda's Electric Mobility Future",
-    desc: "African Energy Hub Ltd is contributing to the acceleration of electric vehicle (EV) mobility in Rwanda by supporting the electrical infrastructure behind Spiro's EV charging network in Kigali. Our work includes medium-voltage power connections and transformer installations at multiple sites, including MEREZ 2 in Gikondo (400 kVA), Nyamirambo (2 × 400 kVA), and Kinamba (630 kVA). These installations represent a combined transformer capacity of 1,830 kVA (1.83 MVA), helping provide the reliable power infrastructure needed to support EV charging operations and Rwanda's transition toward cleaner transportation.",
+    desc: "Medium-voltage power connections and transformer installations supporting Spiro's EV charging network at MEREZ 2 in Gikondo, Nyamirambo, and Kinamba, helping provide reliable power for electric vehicle charging and supporting Rwanda's transition to cleaner transportation.",
     period: "July – August 2026",
     scope: [
       "Medium-voltage power connection",
@@ -54,7 +54,8 @@ const operations: SiteOperation[] = [
   {
     client: "KABISA EV Charging",
     caption: "Powering KABISA's Electric Mobility Network",
-    desc: "African Energy Hub Ltd is contributing to the expansion of electric mobility in Rwanda through electrical infrastructure supporting KABISA EV charging stations. With a 400 kVA transformer installation at the Kacyiru station and charging locations including Rwandex and Kayonza, our work helps strengthen the power infrastructure needed to support EV charging and Rwanda's transition toward cleaner transportation.",
+    desc: "Electrical infrastructure supporting KABISA's EV charging network in Rwanda, including transformer installation at the Kacyiru station and EV charging stations at Rwandex and Kayonza, helping strengthen reliable power supply for electric vehicle charging and supporting Rwanda's transition to cleaner transportation.",
+    period: "June – September",
     scope: [
       "Transformer supply & installation",
       "EV charging station power supply",
@@ -100,11 +101,6 @@ const SiteOperationsSection = () => (
         <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
           Project Updates
         </h2>
-        <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
-          The latest projects we have delivered on site across Rwanda — from
-          EV charging power infrastructure to medium-voltage connections and
-          transformer installation.
-        </p>
       </div>
 
       <div className="space-y-10 max-w-6xl mx-auto">
