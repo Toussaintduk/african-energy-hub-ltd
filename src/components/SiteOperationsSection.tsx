@@ -8,6 +8,10 @@ import kabisaCharger from "@/assets/site-kabisa-charger.jpg";
 import kabisaWiring from "@/assets/site-kabisa-wiring.jpg";
 import kabisaDepot from "@/assets/site-kabisa-depot.jpg";
 import kabisaCanopy from "@/assets/site-kabisa-canopy.jpg";
+import masakaCable from "@/assets/site-masaka-cable.jpg";
+import masakaPole from "@/assets/site-masaka-pole.jpg";
+import masakaCrane from "@/assets/site-masaka-crane.jpg";
+import masakaHardware from "@/assets/site-masaka-hardware.jpg";
 
 type SiteOperation = {
   client: string;
@@ -66,6 +70,30 @@ const operations: SiteOperation[] = [
       },
     ],
   },
+  {
+    client: "Masaka – Bugesera Airport Road",
+    caption: "Relocating LV & MV Lines for the Masaka–Bugesera Airport Road",
+    desc: "African Energy Hub Ltd is relocating low-voltage (LV) and medium-voltage (MV) electrical infrastructure for the road from Masaka to the New Bugesera International Airport, up to Gahembe–Kindama. The project spans Kicukiro and Bugesera and is currently ongoing.",
+    period: "Since August 2026",
+    photos: [
+      {
+        src: masakaCable,
+        alt: "African Energy Hub Ltd technicians terminating a medium-voltage cable during the Masaka to Bugesera airport road line relocation",
+      },
+      {
+        src: masakaPole,
+        alt: "AEH linemen in harnesses connecting MV jumper cables to a distribution transformer on a pole structure",
+      },
+      {
+        src: masakaCrane,
+        alt: "Crane lifting and erecting utility poles beside transformers on concrete plinths at a Bugesera relocation site",
+      },
+      {
+        src: masakaHardware,
+        alt: "AEH technicians checking pole-line hardware and cable coils at the Masaka – Bugesera project laydown yard",
+      },
+    ],
+  },
 ];
 
 const SiteOperationsSection = () => (
@@ -93,7 +121,11 @@ const SiteOperationsSection = () => (
             {/* Photo strip */}
             <div
               className={`flex gap-2 overflow-x-auto p-3 bg-muted/40 sm:grid sm:gap-4 sm:overflow-visible sm:p-4 ${
-                op.photos.length >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3"
+                op.photos.length >= 5
+                  ? "sm:grid-cols-5"
+                  : op.photos.length === 4
+                    ? "sm:grid-cols-4"
+                    : "sm:grid-cols-3"
               }`}
             >
               {op.photos.map((p) => (
