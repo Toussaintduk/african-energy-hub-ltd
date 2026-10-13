@@ -107,7 +107,7 @@ const SiteOperationsSection = () => (
         </p>
       </div>
 
-      <div className="space-y-10 max-w-5xl mx-auto">
+      <div className="space-y-10 max-w-6xl mx-auto">
         {operations.map((op, idx) => (
           <motion.article
             key={op.client}
@@ -118,11 +118,15 @@ const SiteOperationsSection = () => (
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
             {/* Photo strip */}
-            <div className="flex flex-nowrap sm:flex-wrap justify-center gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40">
+            <div
+              className={`flex gap-2 overflow-x-auto p-3 bg-muted/40 sm:grid sm:gap-4 sm:overflow-visible sm:p-4 ${
+                op.photos.length >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3"
+              }`}
+            >
               {op.photos.map((p) => (
                 <div
                   key={p.src}
-                  className="w-[42%] shrink-0 sm:w-[calc(33.333%-0.5rem)] overflow-hidden rounded-lg"
+                  className="w-[42%] shrink-0 sm:w-auto sm:shrink overflow-hidden rounded-lg"
                 >
                   <img
                     src={p.src}
