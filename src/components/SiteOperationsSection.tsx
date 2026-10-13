@@ -90,8 +90,6 @@ const operations: SiteOperation[] = [
   },
 ];
 
-const stripClass = (n: number) => (n >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3");
-
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
     <div className="container">
@@ -109,7 +107,7 @@ const SiteOperationsSection = () => (
         </p>
       </div>
 
-      <div className="space-y-10 max-w-5xl mx-auto">
+      <div className="space-y-10 max-w-6xl mx-auto">
         {operations.map((op, idx) => (
           <motion.article
             key={op.client}
@@ -121,7 +119,9 @@ const SiteOperationsSection = () => (
           >
             {/* Photo strip */}
             <div
-              className={`flex sm:grid gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40 ${stripClass(op.photos.length)}`}
+              className={`flex gap-2 overflow-x-auto p-3 bg-muted/40 sm:grid sm:gap-4 sm:overflow-visible sm:p-4 ${
+                op.photos.length >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3"
+              }`}
             >
               {op.photos.map((p) => (
                 <div
@@ -161,7 +161,7 @@ const SiteOperationsSection = () => (
               </div>
 
               <div className="flex flex-col justify-center">
-                <ul className="grid sm:grid-cols-2 gap-2">
+                <ul className={`grid gap-2 ${op.sites.length % 2 === 0 ? "sm:grid-cols-2" : ""}`}>
                   {op.sites.map((s) => (
                     <li
                       key={s.name}
