@@ -7,6 +7,9 @@ import solidAfrica from "@/assets/partner-solid-africa.png";
 import volkswagen from "@/assets/partner-volkswagen.png";
 import gorillaFeeds from "@/assets/partner-gorilla-feeds.png";
 import vplus from "@/assets/partner-vplus.png";
+import avocadoOil from "@/assets/partner-avocado-oil.png";
+import spiro from "@/assets/partner-spiro.png";
+import sinohydro from "@/assets/partner-sinohydro.png";
 
 const certifications = [
   { src: rura, alt: "Rwanda Utilities Regulatory Authority (RURA)" },
@@ -21,6 +24,9 @@ const clients = [
   { src: volkswagen, alt: "Volkswagen Rwanda" },
   { src: gorillaFeeds, alt: "Gorilla Feed" },
   { src: vplus, alt: "V Plus Packaging Industries" },
+  { src: avocadoOil, alt: "Avocado Oil Industries" },
+  { src: spiro, alt: "SpirO" },
+  { src: sinohydro, alt: "Sinohydro" },
 ];
 
 const PartnersSection = () => (
@@ -47,7 +53,7 @@ const PartnersSection = () => (
 
       <div>
         <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Trusted by Leading Organizations</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
           {clients.map((c) => (
             <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-24 shadow-card border border-border hover:shadow-elevated transition-shadow">
               <img src={c.src} alt={c.alt} loading="lazy" className="max-h-14 w-auto object-contain" />
