@@ -46,7 +46,7 @@ const operations: SiteOperation[] = [
     client: "KABISA EV Charging",
     caption: "Powering KABISA's Electric Mobility Network",
     desc: "Electrical infrastructure supporting KABISA's EV charging network in Rwanda, including transformer installation at the Kacyiru station and EV charging stations at Rwandex and Kayonza, helping strengthen reliable power supply for electric vehicle charging and supporting Rwanda's transition to cleaner transportation.",
-    period: "June – September",
+    period: "June – September 2026",
     photos: [
       {
         src: kabisaSign,
