@@ -90,8 +90,6 @@ const operations: SiteOperation[] = [
   },
 ];
 
-const stripClass = (n: number) => (n >= 5 ? "sm:grid-cols-5" : "sm:grid-cols-3");
-
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
     <div className="container">
@@ -120,13 +118,11 @@ const SiteOperationsSection = () => (
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
             {/* Photo strip */}
-            <div
-              className={`flex sm:grid gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40 ${stripClass(op.photos.length)}`}
-            >
+            <div className="flex flex-nowrap sm:flex-wrap justify-center gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible p-3 sm:p-4 bg-muted/40">
               {op.photos.map((p) => (
                 <div
                   key={p.src}
-                  className="w-[42%] shrink-0 sm:w-auto sm:shrink overflow-hidden rounded-lg"
+                  className="w-[42%] shrink-0 sm:w-[calc(33.333%-0.5rem)] overflow-hidden rounded-lg"
                 >
                   <img
                     src={p.src}
@@ -162,10 +158,14 @@ const SiteOperationsSection = () => (
 
               <div className="flex flex-col justify-center">
                 <ul className="grid sm:grid-cols-2 gap-2">
-                  {op.sites.map((s) => (
+                  {op.sites.map((s, i) => (
                     <li
                       key={s.name}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 px-3 py-2"
+                      className={`flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 px-3 py-2 ${
+                        i === op.sites.length - 1 && op.sites.length % 2 === 1
+                          ? "sm:col-span-2"
+                          : ""
+                      }`}
                     >
                       <span className="flex items-center gap-2 text-sm font-medium text-foreground">
                         <MapPin className="h-4 w-4 shrink-0 text-primary" />
