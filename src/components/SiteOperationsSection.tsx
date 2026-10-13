@@ -161,15 +161,11 @@ const SiteOperationsSection = () => (
               </div>
 
               <div className="flex flex-col justify-center">
-                <ul className="grid sm:grid-cols-2 gap-2">
-                  {op.sites.map((s, i) => (
+                <ul className={`grid gap-2 ${op.sites.length % 2 === 0 ? "sm:grid-cols-2" : ""}`}>
+                  {op.sites.map((s) => (
                     <li
                       key={s.name}
-                      className={`flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 px-3 py-2 ${
-                        i === op.sites.length - 1 && op.sites.length % 2 === 1
-                          ? "sm:col-span-2"
-                          : ""
-                      }`}
+                      className="flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 px-3 py-2"
                     >
                       <span className="flex items-center gap-2 text-sm font-medium text-foreground">
                         <MapPin className="h-4 w-4 shrink-0 text-primary" />
