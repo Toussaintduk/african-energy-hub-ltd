@@ -182,12 +182,12 @@ const SiteOperationsSection = () => (
             {op.photos.length === 1 ? (
               <div className="sm:grid sm:grid-cols-[minmax(0,340px)_1fr] sm:items-stretch">
                 <div className="flex overflow-x-auto bg-muted/40 p-3 sm:p-0">
-                  <div className="mx-auto w-[62%] overflow-hidden rounded-lg sm:mx-0 sm:h-full sm:w-full sm:rounded-none">
+                  <div className="mx-auto w-[62%] overflow-hidden rounded-lg sm:relative sm:mx-0 sm:h-full sm:w-full sm:min-h-[260px] sm:rounded-none">
                     <img
                       src={op.photos[0].src}
                       alt={op.photos[0].alt}
                       loading="lazy"
-                      className="aspect-[3/4] w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105 sm:aspect-auto sm:h-full"
+                      className="aspect-[3/4] w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105 sm:absolute sm:inset-0 sm:aspect-auto sm:h-full sm:w-full"
                     />
                   </div>
                 </div>
