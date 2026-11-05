@@ -13,6 +13,8 @@ import masakaPole from "@/assets/site-masaka-pole.jpg";
 import masakaCrane from "@/assets/site-masaka-crane.jpg";
 import masakaHardware from "@/assets/site-masaka-hardware.jpg";
 import alphatntFieldVisit from "@/assets/site-alphatnt-field-visit.jpg";
+import inkundamahoroWork from "@/assets/site-inkundamahoro-work.jpg";
+import inkundamahoroCrew from "@/assets/site-inkundamahoro-crew.jpg";
 import inkundamahoroStation from "@/assets/site-inkundamahoro-station.jpg";
 
 type SiteOperation = {
@@ -115,8 +117,15 @@ const operations: SiteOperation[] = [
     caption: "Supply and Installation of EV Charging Infrastructure",
     desc: "In collaboration with Eco-Chargelink Ltd, African Energy Hub Ltd completed the installation of electric vehicle (EV) charging infrastructure at the Inkundamahoro site. The project involved the supply and installation of a 400 kVA transformer and two 120 kW EV charging stations. This initiative supports the expansion of Rwanda's EV charging network and reinforces our commitment to accelerating sustainable electric mobility across the country.",
     period: "October 2026",
-    wide: true,
     photos: [
+      {
+        src: inkundamahoroWork,
+        alt: "African Energy Hub Ltd technician in a high-visibility vest terminating the DC charger controller and protection devices inside an open EV charger cabinet at the Inkundamahoro site",
+      },
+      {
+        src: inkundamahoroCrew,
+        alt: "Two African Energy Hub Ltd technicians wiring open EV charging cabinets and grounding cables at the Inkundamahoro site",
+      },
       {
         src: inkundamahoroStation,
         alt: "Completed EV charging station at the Inkundamahoro site with DC fast chargers under a canopy and electric vehicles charging",
