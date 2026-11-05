@@ -13,9 +13,6 @@ import masakaPole from "@/assets/site-masaka-pole.jpg";
 import masakaCrane from "@/assets/site-masaka-crane.jpg";
 import masakaHardware from "@/assets/site-masaka-hardware.jpg";
 import alphatntFieldVisit from "@/assets/site-alphatnt-field-visit.jpg";
-import inkundamahoroCabinet from "@/assets/site-inkundamahoro-cabinet.jpg";
-import inkundamahoroWiring from "@/assets/site-inkundamahoro-wiring.jpg";
-import inkundamahoroController from "@/assets/site-inkundamahoro-controller.jpg";
 import inkundamahoroStation from "@/assets/site-inkundamahoro-station.jpg";
 
 type SiteOperation = {
@@ -24,6 +21,8 @@ type SiteOperation = {
   desc: string;
   period?: string;
   photos: { src: string; alt: string }[];
+  /** set when the single photo is landscape, so it gets a wider column */
+  wide?: boolean;
 };
 
 const operations: SiteOperation[] = [
@@ -116,22 +115,11 @@ const operations: SiteOperation[] = [
     caption: "Supply and Installation of EV Charging Infrastructure",
     desc: "In collaboration with Eco-Chargelink Ltd, African Energy Hub Ltd completed the installation of electric vehicle (EV) charging infrastructure at the Inkundamahoro site. The project involved the supply and installation of a 400 kVA transformer and two 120 kW EV charging stations. This initiative supports the expansion of Rwanda's EV charging network and reinforces our commitment to accelerating sustainable electric mobility across the country.",
     period: "October 2026",
+    wide: true,
     photos: [
       {
-        src: inkundamahoroCabinet,
-        alt: "African Energy Hub Ltd technicians wiring the EV charger cabinet and power distribution board at the Inkundamahoro site",
-      },
-      {
-        src: inkundamahoroWiring,
-        alt: "Inside an EV fast charger control cabinet being terminated by AEH technicians at Inkundamahoro",
-      },
-      {
-        src: inkundamahoroController,
-        alt: "AEH technician installing the DC charger controller and protection devices inside the Inkundamahoro EV charger",
-      },
-      {
         src: inkundamahoroStation,
-        alt: "Completed EV charging station with DC fast chargers under a canopy at the Inkundamahoro site",
+        alt: "Completed EV charging station at the Inkundamahoro site with DC fast chargers under a canopy and electric vehicles charging",
       },
     ],
   },
@@ -185,6 +173,32 @@ const PhotoStrip = ({ op }: { op: SiteOperation }) => (
   </div>
 );
 
+const SinglePhoto = ({ op }: { op: SiteOperation }) => (
+  <div
+    className={`sm:grid sm:items-stretch ${
+      op.wide
+        ? "sm:grid-cols-[minmax(0,420px)_1fr]"
+        : "sm:grid-cols-[minmax(0,340px)_1fr]"
+    }`}
+  >
+    <div className="flex overflow-x-auto bg-muted/40 p-3 sm:p-0">
+      <div
+        className={`relative mx-auto overflow-hidden rounded-lg sm:mx-0 sm:h-full sm:w-full sm:min-h-[260px] sm:rounded-none ${
+          op.wide ? "aspect-[4/3] w-full" : "aspect-[3/4] w-[62%]"
+        }`}
+      >
+        <img
+          src={op.photos[0].src}
+          alt={op.photos[0].alt}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
+        />
+      </div>
+    </div>
+    <Details op={op} />
+  </div>
+);
+
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
     <div className="container">
@@ -208,19 +222,7 @@ const SiteOperationsSection = () => (
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
           >
             {op.photos.length === 1 ? (
-              <div className="sm:grid sm:grid-cols-[minmax(0,340px)_1fr] sm:items-stretch">
-                <div className="flex overflow-x-auto bg-muted/40 p-3 sm:p-0">
-                  <div className="mx-auto w-[62%] overflow-hidden rounded-lg sm:relative sm:mx-0 sm:h-full sm:w-full sm:min-h-[260px] sm:rounded-none">
-                    <img
-                      src={op.photos[0].src}
-                      alt={op.photos[0].alt}
-                      loading="lazy"
-                      className="aspect-[3/4] w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105 sm:absolute sm:inset-0 sm:aspect-auto sm:h-full sm:w-full"
-                    />
-                  </div>
-                </div>
-                <Details op={op} />
-              </div>
+              <SinglePhoto op={op} />
             ) : (
               <>
                 <PhotoStrip op={op} />
