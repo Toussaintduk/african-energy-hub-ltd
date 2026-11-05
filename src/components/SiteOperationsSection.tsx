@@ -13,6 +13,10 @@ import masakaPole from "@/assets/site-masaka-pole.jpg";
 import masakaCrane from "@/assets/site-masaka-crane.jpg";
 import masakaHardware from "@/assets/site-masaka-hardware.jpg";
 import alphatntFieldVisit from "@/assets/site-alphatnt-field-visit.jpg";
+import inkundamahoroCabinet from "@/assets/site-inkundamahoro-cabinet.jpg";
+import inkundamahoroWiring from "@/assets/site-inkundamahoro-wiring.jpg";
+import inkundamahoroController from "@/assets/site-inkundamahoro-controller.jpg";
+import inkundamahoroStation from "@/assets/site-inkundamahoro-station.jpg";
 
 type SiteOperation = {
   client: string;
@@ -104,6 +108,30 @@ const operations: SiteOperation[] = [
       {
         src: alphatntFieldVisit,
         alt: "African Energy Hub Ltd and Alpha TNT teams on site during the field visit to the Le Printemps–Zindiro MV overhead line rehabilitation in Gasabo District",
+      },
+    ],
+  },
+  {
+    client: "EV Charging Infrastructure – Inkundamahoro Site",
+    caption: "Supply and Installation of EV Charging Infrastructure",
+    desc: "In collaboration with Eco-Chargelink Ltd, African Energy Hub Ltd completed the installation of electric vehicle (EV) charging infrastructure at the Inkundamahoro site. The project involved the supply and installation of a 400 kVA transformer and two 120 kW EV charging stations. This initiative supports the expansion of Rwanda's EV charging network and reinforces our commitment to accelerating sustainable electric mobility across the country.",
+    period: "October 2026",
+    photos: [
+      {
+        src: inkundamahoroCabinet,
+        alt: "African Energy Hub Ltd technicians wiring the EV charger cabinet and power distribution board at the Inkundamahoro site",
+      },
+      {
+        src: inkundamahoroWiring,
+        alt: "Inside an EV fast charger control cabinet being terminated by AEH technicians at Inkundamahoro",
+      },
+      {
+        src: inkundamahoroController,
+        alt: "AEH technician installing the DC charger controller and protection devices inside the Inkundamahoro EV charger",
+      },
+      {
+        src: inkundamahoroStation,
+        alt: "Completed EV charging station with DC fast chargers under a canopy at the Inkundamahoro site",
       },
     ],
   },
