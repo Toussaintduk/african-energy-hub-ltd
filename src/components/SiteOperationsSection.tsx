@@ -16,6 +16,11 @@ import alphatntFieldVisit from "@/assets/site-alphatnt-field-visit.jpg";
 import inkundamahoroWork from "@/assets/site-inkundamahoro-work.jpg";
 import inkundamahoroCrew from "@/assets/site-inkundamahoro-crew.jpg";
 import inkundamahoroStation from "@/assets/site-inkundamahoro-station.jpg";
+import crbcQuarryTeam from "@/assets/site-crbc-quarry-team.jpg";
+import crbcQuarryVisit from "@/assets/site-crbc-quarry-visit.jpg";
+import crbcMvPole from "@/assets/site-crbc-mv-pole.jpg";
+import crbcLineStringing from "@/assets/site-crbc-line-stringing.jpg";
+import crbcCrossarm from "@/assets/site-crbc-crossarm.jpg";
 
 type SiteOperation = {
   client: string;
@@ -129,6 +134,34 @@ const operations: SiteOperation[] = [
       {
         src: inkundamahoroStation,
         alt: "Completed EV charging station at the Inkundamahoro site with DC fast chargers under a canopy and electric vehicles charging",
+      },
+    ],
+  },
+  {
+    client: "Bugesera CRBC Quarry Project",
+    caption: "Powering Industrial Operations in Bugesera",
+    desc: "Progressing the power supply connection to the Bugesera CRBC Quarry through the supply and installation of medium-voltage (MV) line, including 1,000 kVA and 630 kVA transformers and approximately 2 km of MV line. During a site visit in October, African Energy Hub CEO, Philbert Manzi, inspected the ongoing works and expressed his excitement at the team's impressive pace of execution and progress, reflecting the team's commitment to delivering reliable Energy infrastructure to support industrial operations in Bugesera, Rwanda.",
+    period: "October 2026",
+    photos: [
+      {
+        src: crbcMvPole,
+        alt: "African Energy Hub Ltd technicians fitting crossarms and insulators on a new medium-voltage pole beside a transmission line at the Bugesera CRBC Quarry project",
+      },
+      {
+        src: crbcLineStringing,
+        alt: "AEH linemen in harnesses stringing medium-voltage conductors on a steel pole for the Bugesera CRBC Quarry power supply connection",
+      },
+      {
+        src: crbcCrossarm,
+        alt: "Close-up of African Energy Hub Ltd technicians working on a medium-voltage line crossarm at the Bugesera CRBC Quarry site",
+      },
+      {
+        src: crbcQuarryTeam,
+        alt: "African Energy Hub Ltd team in high-visibility vests at the Bugesera CRBC Quarry site with project vehicles",
+      },
+      {
+        src: crbcQuarryVisit,
+        alt: "African Energy Hub Ltd supervisors on site during the October inspection of the Bugesera CRBC Quarry MV line works",
       },
     ],
   },
