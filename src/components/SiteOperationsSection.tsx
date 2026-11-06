@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import spiroStation from "@/assets/site-spiro-station.jpg";
 import spiroDistribution from "@/assets/site-spiro-distribution.jpg";
 import spiroMvLine from "@/assets/site-spiro-mv-line.jpg";
@@ -28,8 +29,6 @@ type SiteOperation = {
   desc: string;
   period?: string;
   photos: { src: string; alt: string }[];
-  /** set when the single photo is landscape, so it gets a wider column */
-  wide?: boolean;
 };
 
 const operations: SiteOperation[] = [
@@ -189,57 +188,88 @@ const Details = ({ op }: { op: SiteOperation }) => (
   </div>
 );
 
-const PhotoStrip = ({ op }: { op: SiteOperation }) => (
-  <div
-    className={`flex gap-2 overflow-x-auto p-3 bg-muted/40 sm:grid sm:gap-4 sm:overflow-visible sm:p-4 ${
-      op.photos.length >= 5
-        ? "sm:grid-cols-5"
-        : op.photos.length === 4
-          ? "sm:grid-cols-4"
-          : "sm:grid-cols-3"
-    }`}
-  >
-    {op.photos.map((p) => (
-      <div
-        key={p.src}
-        className="w-[42%] shrink-0 sm:w-auto sm:shrink overflow-hidden rounded-lg"
-      >
-        <img
-          src={p.src}
-          alt={p.alt}
-          loading="lazy"
-          className="aspect-[3/4] w-full object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-        />
-      </div>
-    ))}
-  </div>
-);
+const PhotoShow = ({ op }: { op: SiteOperation }) => {
+  const total = op.photos.length;
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const go = (dir: number) => setIndex((p) => (p + dir + total) % total);
 
-const SinglePhoto = ({ op }: { op: SiteOperation }) => (
-  <div
-    className={`sm:grid sm:items-stretch ${
-      op.wide
-        ? "sm:grid-cols-[minmax(0,420px)_1fr]"
-        : "sm:grid-cols-[minmax(0,340px)_1fr]"
-    }`}
-  >
-    <div className="flex overflow-x-auto bg-muted/40 p-3 sm:p-0">
-      <div
-        className={`relative mx-auto overflow-hidden rounded-lg sm:mx-0 sm:h-full sm:w-full sm:min-h-[260px] sm:rounded-none ${
-          op.wide ? "aspect-[4/3] w-full" : "aspect-[3/4] w-[62%]"
-        }`}
+  useEffect(() => {
+    if (total < 2 || paused) return;
+    const timer = setInterval(() => setIndex((p) => (p + 1) % total), 4500);
+    return () => clearInterval(timer);
+  }, [total, paused, index]);
+
+  return (
+    <div
+      className="relative h-[300px] overflow-hidden bg-muted/40 sm:h-auto sm:min-h-[300px]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <motion.div
+        className="absolute inset-0 flex cursor-grab active:cursor-grabbing"
+        animate={{ x: `-${index * 100}%` }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        drag={total > 1 ? "x" : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.06}
+        onDragEnd={(_, info) => {
+          if (info.offset.x < -60) go(1);
+          else if (info.offset.x > 60) go(-1);
+        }}
       >
-        <img
-          src={op.photos[0].src}
-          alt={op.photos[0].alt}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
-        />
-      </div>
+        {op.photos.map((p) => (
+          <img
+            key={p.src}
+            src={p.src}
+            alt={p.alt}
+            loading="lazy"
+            className="h-full w-full shrink-0 object-cover object-center"
+          />
+        ))}
+      </motion.div>
+
+      {total > 1 && (
+        <>
+          <span className="pointer-events-none absolute right-3 top-3 rounded-full bg-energy-dark/60 px-2 py-0.5 text-[11px] font-semibold text-primary-foreground backdrop-blur-sm">
+            {index + 1} / {total}
+          </span>
+          <button
+            type="button"
+            aria-label="Previous photo"
+            onClick={() => go(-1)}
+            className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-energy-dark/60 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-energy-dark/85"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next photo"
+            onClick={() => go(1)}
+            className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-energy-dark/60 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-energy-dark/85"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+            {op.photos.map((p, i) => (
+              <button
+                key={p.src}
+                type="button"
+                aria-label={`Show photo ${i + 1} of ${total}`}
+                onClick={() => setIndex(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === index
+                    ? "w-5 bg-primary"
+                    : "w-1.5 bg-primary-foreground/70 hover:bg-primary-foreground"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
-    <Details op={op} />
-  </div>
-);
+  );
+};
 
 const SiteOperationsSection = () => (
   <section id="operations" className="py-24 bg-background scroll-mt-24">
@@ -261,16 +291,10 @@ const SiteOperationsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: idx * 0.08 }}
-            className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300"
+            className="overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-shadow duration-300 sm:grid sm:grid-cols-[minmax(0,360px)_1fr] sm:items-stretch"
           >
-            {op.photos.length === 1 ? (
-              <SinglePhoto op={op} />
-            ) : (
-              <>
-                <PhotoStrip op={op} />
-                <Details op={op} />
-              </>
-            )}
+            <PhotoShow op={op} />
+            <Details op={op} />
           </motion.article>
         ))}
       </div>
