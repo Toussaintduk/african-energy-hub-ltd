@@ -30,39 +30,6 @@ const clients = [
 ];
 
 const PartnersSection = () => (
-  <section id="partners" className="py-24 bg-muted/30 border-y border-border">
-    <div className="container">
-      <div className="max-w-3xl mx-auto text-center mb-12">
-        <span className="text-primary font-semibold text-sm uppercase tracking-wider">Credentials & Clients</span>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 mb-4">Certified & Trusted</h2>
-        <p className="text-muted-foreground text-lg leading-relaxed">
-          Officially licensed and proudly serving Rwanda's most established organizations.
-        </p>
-      </div>
-
-      <div className="mb-14">
-        <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Our Certifications</h3>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-          {certifications.map((c) => (
-            <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-28 md:h-32 w-44 md:w-52 shadow-card border border-border hover:shadow-elevated transition-shadow">
-              <img src={c.src} alt={c.alt} loading="lazy" className="max-h-full max-w-full object-contain" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Trusted by Leading Organizations</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
-          {clients.map((c) => (
-            <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-24 shadow-card border border-border hover:shadow-elevated transition-shadow">
-              <img src={c.src} alt={c.alt} loading="lazy" className="max-h-14 w-auto object-contain" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+ <section id="partners" className="py-9 border-y border-border bg-background"><div className="container"><div className="grid lg:grid-cols-[240px_1fr] gap-8"><div className="lg:border-r border-border lg:pr-6"><p className="text-xs font-semibold text-muted-foreground mb-4">CERTIFICATIONS & PROFESSIONAL REGISTRATION</p><div className="flex gap-4">{certifications.map(c=><div key={c.alt} className="h-16 w-24 flex items-center justify-center"><img src={c.src} alt={c.alt} loading="lazy" className="max-h-14 max-w-full object-contain"/></div>)}</div><p className="text-xs text-muted-foreground mt-2">RURA Category C · IER professionals</p></div><div><h2 className="text-xs font-semibold text-muted-foreground mb-5">TRUSTED BY LEADING ORGANIZATIONS</h2><div className="grid grid-cols-3 sm:grid-cols-5 gap-x-5 gap-y-4">{clients.map(c=><div key={c.alt} title={c.alt} className="h-12 flex items-center justify-center transition-opacity hover:opacity-70"><img src={c.src} alt={c.alt} loading="lazy" className="max-h-10 max-w-full object-contain"/></div>)}</div></div></div></div></section>
 );
-
 export default PartnersSection;

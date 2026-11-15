@@ -1,27 +1,12 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui/toaster';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import Navbar from '@/components/Navbar';import Footer from '@/components/Footer';
+import Index from '@/pages/Index';import Projects from '@/pages/Projects';import ProjectDetail from '@/pages/ProjectDetail';import Services from '@/pages/Services';import About from '@/pages/About';import Team from '@/pages/Team';import Contact from '@/pages/Contact';import Activities from '@/pages/Activities';import NotFound from '@/pages/NotFound';
+const queryClient=new QueryClient();
+function PageMetadata(){const {pathname,hash}=useLocation();useEffect(()=>{const names:Record<string,string>={'/projects':'Engineering Projects','/about':'About Us','/services':'Our Services','/team':'Our Team','/contact':'Contact & Request a Quote','/activities':'On-Site Work Activities'};document.title=pathname==='/'?'African Energy Hub Ltd | Energy Service Solutions in Rwanda':`${names[pathname]??(pathname.startsWith('/projects/')?'Engineering Project':pathname.startsWith('/services/')?'Electrical Services':'Page Not Found')} | African Energy Hub Ltd`;if(hash){requestAnimationFrame(()=>document.getElementById(hash.slice(1))?.scrollIntoView());}},[pathname,hash]);return null;}
+export default function App(){return <QueryClientProvider client={queryClient}><TooltipProvider><MotionConfig reducedMotion="user"><Toaster/><Sonner/><BrowserRouter><PageMetadata/><a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-background p-3">Skip to content</a><Navbar/><main id="main-content"><Routes><Route path="/" element={<Index/>}/><Route path="/projects" element={<Projects/>}/><Route path="/projects/:slug" element={<ProjectDetail/>}/><Route path="/services" element={<Services/>}/><Route path="/services/:slug" element={<Services/>}/><Route path="/about" element={<About/>}/><Route path="/team" element={<Team/>}/><Route path="/contact" element={<Contact/>}/><Route path="/activities" element={<Activities/>}/><Route path="*" element={<NotFound/>}/></Routes></main><Footer/></BrowserRouter></MotionConfig></TooltipProvider></QueryClientProvider>;}

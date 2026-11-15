@@ -1,86 +1,9 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import logo from "@/assets/logo-aeh.png";
-
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const links = ["About", "Services", "Team", "SDG", "Contact"];
-
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border shadow-sm">
-      <div className="container flex items-center justify-between h-24">
-        <a href="#" className="flex items-center gap-3 font-display font-bold text-lg text-foreground">
-          <img src={logo} alt="African Energy Hub Ltd logo" width={96} height={96} className="h-20 w-20 md:h-24 md:w-24 object-contain" />
-          <span className="hidden sm:inline">African Energy Hub Ltd</span>
-        </a>
-        <div className="hidden md:flex items-center gap-8">
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{l}</a>
-          ))}
-          <a href="#contact" className="bg-gradient-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">Get a Quote</a>
-        </div>
-        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="md:hidden text-foreground">
-          <Menu className="h-6 w-6" />
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.4 }}
-            className="md:hidden fixed inset-0 z-50 bg-background flex flex-col p-6 shadow-elevated"
-          >
-            <div className="flex justify-between items-center mb-8">
-              <span className="font-display font-bold text-lg flex items-center gap-3 text-foreground">
-                <img src={logo} alt="AEH Ltd" width={56} height={56} className="h-14 w-14 object-contain" />
-                African Energy Hub Ltd
-              </span>
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-foreground">
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            <div className="flex flex-col gap-6">
-              {links.map((l, i) => (
-                <motion.a
-                  key={l}
-                  href={`#${l.toLowerCase()}`}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15 + i * 0.06, duration: 0.35, ease: "easeOut" }}
-                  className="text-xl font-display font-semibold text-foreground hover:text-primary transition-colors"
-                >
-                  {l}
-                </motion.a>
-              ))}
-              <motion.a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 + links.length * 0.06, duration: 0.35 }}
-                className="mt-4 bg-gradient-primary text-primary-foreground px-5 py-3 rounded-lg text-base font-semibold text-center hover:opacity-90 transition-opacity"
-              >
-                Get a Quote
-              </motion.a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
-
-export default Navbar;
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo-aeh.png';
+export const navigation = ['Home','About','Services','Projects','Team','Contact'];
+export const navPath=(name:string)=>name==='Home'?'/':`/${name.toLowerCase()}`;
+export default function Navbar(){const [open,setOpen]=useState(false);const location=useLocation();const reduced=useReducedMotion();useEffect(()=>{setOpen(false);window.scrollTo({top:0,behavior:'instant'});},[location.pathname]);useEffect(()=>{document.body.style.overflow=open?'hidden':'';return()=>{document.body.style.overflow='';};},[open]);useEffect(()=>{const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false);};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);},[]);return <header className="sticky top-0 z-40 bg-background border-b border-border"><div className="container flex h-20 items-center justify-between gap-4"><Link to="/" aria-label="African Energy Hub home" className="shrink-0"><img src={logo} alt="African Energy Hub Ltd" className="h-16 w-32 object-contain"/></Link><nav aria-label="Main navigation" className="hidden lg:flex items-center gap-6">{navigation.map(n=><NavLink key={n} end to={navPath(n)} className={({isActive})=>`nav-link ${isActive?'active':''}`}>{n}</NavLink>)}</nav><div className="flex gap-2 items-center"><Button asChild className="hidden sm:inline-flex"><Link to="/contact">Get a Quote <ArrowUpRight/></Link></Button><Button variant="ghost" size="icon" className="lg:hidden" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</Button></div></div><AnimatePresence>{open&&<motion.nav aria-label="Mobile navigation" initial={{opacity:0,y:reduced?0:-12}} animate={{opacity:1,y:0}} exit={{opacity:0,y:reduced?0:-12}} transition={{duration:reduced?0:0.2}} className="lg:hidden absolute top-20 inset-x-0 h-[calc(100dvh-5rem)] bg-background border-t border-border p-6 flex flex-col gap-2">{navigation.map(n=><NavLink end to={navPath(n)} key={n} className="text-2xl font-semibold py-3 border-b border-border">{n}</NavLink>)}<Button asChild className="mt-5"><Link to="/contact">Get a Quote <ArrowUpRight/></Link></Button><p className="text-sm text-muted-foreground mt-auto pb-6">Muhima, Kigali, Rwanda</p></motion.nav>}</AnimatePresence></header>;}

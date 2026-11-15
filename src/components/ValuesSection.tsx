@@ -1,30 +1,5 @@
-import { Award, Lightbulb, ShieldCheck, Heart, Users } from "lucide-react";
-
-const values = [
-  { icon: Award, label: "Professionalism" },
-  { icon: Lightbulb, label: "Innovation & Sustainability" },
-  { icon: ShieldCheck, label: "Quality Assurance" },
-  { icon: Heart, label: "Integrity & Transparency" },
-  { icon: Users, label: "Customer-Centric Approach" },
-];
-
-const ValuesSection = () => (
-  <section className="py-24 bg-background">
-    <div className="container">
-      <div className="text-center mb-16">
-        <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Values</span>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mt-3">What Drives Us</h2>
-      </div>
-      <div className="flex flex-wrap justify-center gap-6">
-        {values.map(v => (
-          <div key={v.label} className="flex items-center gap-3 bg-card border border-border rounded-full px-6 py-3 shadow-card hover:shadow-elevated transition-shadow">
-            <v.icon className="h-5 w-5 text-primary" />
-            <span className="font-medium text-sm">{v.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-export default ValuesSection;
+import { ShieldCheck, HardHat, Users, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+const values=[{icon:ShieldCheck,title:'Certified expertise',desc:'RURA Category C electrical installation certification and professionals registered with IER.'},{icon:HardHat,title:'Safety and quality',desc:'Professional installation, testing and maintenance, with quality assurance at every stage.'},{icon:Users,title:'A committed partner',desc:'Integrity, transparency and a customer-centric approach to every electrical infrastructure project.'}];
+export default function ValuesSection(){return <section className="section-space bg-secondary text-secondary-foreground"><div className="container"><div className="grid lg:grid-cols-[1fr_2fr] gap-10"><div><p className="eyebrow text-secondary-foreground/60">WHY CHOOSE US</p><h2 className="section-title">Confidence.<br/>From the ground up.</h2><Button variant="link" asChild className="px-0 text-secondary-foreground mt-4"><Link to="/about">Our approach <ArrowUpRight/></Link></Button></div><div className="grid sm:grid-cols-3 gap-7">{values.map(v=><div key={v.title} className="border-t border-secondary-foreground/25 pt-6"><v.icon className="h-7 w-7 text-primary mb-6"/><h3 className="text-lg font-semibold">{v.title}</h3><p className="text-sm text-secondary-foreground/65 leading-relaxed mt-3">{v.desc}</p></div>)}</div></div></div></section>;}
