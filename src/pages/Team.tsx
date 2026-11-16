@@ -1,2 +1,0 @@
-import TeamSection from '@/components/TeamSection';import ContactSection from '@/components/ContactSection';
-export default function Team(){return <><section className="page-top"><div className="container"><p className="eyebrow">OUR TEAM</p><h1>Expertise. Commitment.<br/>Shared purpose.</h1><p className="text-muted-foreground mt-5">The people delivering African Energy Hub's electrical infrastructure projects.</p></div></section><TeamSection full/><ContactSection/></>;}

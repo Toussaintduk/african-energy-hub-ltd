@@ -1,4 +1,3 @@
-import PhotoGallery from "./PhotoGallery";
 import { Zap, Cpu, BatteryCharging, Users, HardHat, Truck } from "lucide-react";
 import siteVisitSinohydro from "@/assets/site-visit-sinohydro-reg.jpg";
 import mvWorkers from "@/assets/site-mv-workers-action.jpg";
@@ -82,6 +81,64 @@ const categories = [
 ];
 
 const SiteActivitiesSection = () => (
- <section id="activities" className="section-space"><div className="container space-y-12">{categories.map(cat=><section key={cat.title} className="border-t border-border pt-7"><div className="flex gap-4 mb-6"><cat.icon className="h-6 w-6 text-primary shrink-0"/><div><h2 className="text-2xl font-semibold">{cat.title}</h2><p className="text-muted-foreground text-sm mt-2 max-w-3xl">{cat.desc}</p></div></div><PhotoGallery photos={cat.photos} title={cat.title}/></section>)}</div></section>
+  <section id="activities" className="py-24 bg-muted/30">
+    <div className="container">
+      <div className="text-center mb-16 animate-fade-up">
+        <span className="text-secondary font-semibold text-sm uppercase tracking-wider">In The Field</span>
+        <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
+          On-Site Work Activities
+        </h2>
+        <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
+          A look at our crews delivering real energy infrastructure across Rwanda.
+        </p>
+      </div>
+
+      <div className="space-y-16">
+        {categories.map((cat, idx) => (
+          <div
+            key={cat.title}
+            className="animate-fade-up"
+            style={{ animationDelay: `${idx * 80}ms` }}
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 shrink-0 rounded-lg bg-gradient-primary flex items-center justify-center shadow-card">
+                <cat.icon className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground">{cat.title}</h3>
+                <p className="text-muted-foreground text-sm md:text-base mt-1 max-w-3xl">{cat.desc}</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {cat.photos.map((p) => (
+                <figure
+                  key={p.src}
+                  className="group relative aspect-[3/4] overflow-hidden rounded-xl border border-border bg-card shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-500"
+                >
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  {/* Permanent gradient for legibility */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-energy-dark/95 via-energy-dark/40 to-transparent" />
+                  {/* Accent bar */}
+                  <div className="absolute left-0 top-0 h-full w-1 bg-secondary scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-4">
+                    <p className="text-sm md:text-base font-semibold text-white leading-snug drop-shadow-lg">
+                      {p.alt}
+                    </p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 );
+
 export default SiteActivitiesSection;

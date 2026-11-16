@@ -1,6 +1,0 @@
-import { z } from 'zod';
-export const quoteSchema = z.object({name:z.string().trim().min(2,'Please enter your full name.').max(100),email:z.string().trim().email('Please enter a valid email address.'),phone:z.string().trim().min(7,'Please enter a contact phone number.').max(30),company:z.string().trim().max(150),service:z.enum(['Trading & Supply','Installation & Commissioning','Maintenance Services','Other electrical infrastructure']),location:z.string().trim().min(2,'Please enter the project location.').max(150),message:z.string().trim().min(15,'Please describe your project in at least 15 characters.').max(5000),consent:z.literal(true,{errorMap:()=>({message:'Please agree to be contacted about this request.'})})});
-export type Quote = z.infer<typeof quoteSchema>;
-export function quoteMessage(q:Quote){return `Quotation request — ${q.service}\n\nName: ${q.name}\nEmail: ${q.email}\nPhone: ${q.phone}\nCompany: ${q.company || 'Not provided'}\nProject location: ${q.location}\n\n${q.message}`;}
-export function quoteEmail(q:Quote){return `mailto:africanenergyhub@gmail.com?subject=${encodeURIComponent(`Quotation request — ${q.service}`)}&body=${encodeURIComponent(quoteMessage(q))}`;}
-export function quoteWhatsApp(q:Quote){return `https://wa.me/250788608320?text=${encodeURIComponent(quoteMessage(q))}`;}

@@ -1,5 +1,0 @@
-import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import sdg7 from '@/assets/sdg-7.png';import sdg9 from '@/assets/sdg-9.png';import sdg11 from '@/assets/sdg-11.png';
-export default function SustainabilityPreview(){return <section className="section-space bg-muted/40"><div className="container grid md:grid-cols-2 items-center gap-10"><div><p className="eyebrow">SUSTAINABILITY & IMPACT</p><h2 className="section-title">Infrastructure for<br/>a stronger Rwanda.</h2><p className="text-muted-foreground leading-relaxed mt-5">Supporting reliable electricity access, industrial development and electric mobility, aligned with Rwanda Vision 2050, NST2 and SDGs 7, 9 and 11.</p><Button variant="link" asChild className="px-0 mt-4 text-foreground"><Link to="/about#sustainability">Our contribution <ArrowUpRight/></Link></Button></div><div className="flex justify-center gap-4 sm:gap-6">{[sdg7,sdg9,sdg11].map((src,i)=><img key={src} src={src} alt={`Sustainable Development Goal ${[7,9,11][i]}`} loading="lazy" className="w-24 sm:w-32 aspect-square object-contain"/>)}</div></div></section>;}

@@ -1,5 +1,32 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/site-inkundamahoro-station.jpg';
-export default function HeroSection(){return <section id="home" className="home-hero"><img src={heroImage} alt="African Energy Hub's completed EV charging infrastructure at the Inkundamahoro site" className="hero-photo" fetchPriority="high"/><div className="hero-shade"/><div className="container relative py-16"><div className="max-w-2xl"><p className="text-sm font-medium text-primary-foreground/90 mb-5 flex items-center gap-3"><span className="h-px w-9 bg-primary"/>ENGINEERING RWANDA'S ENERGY FUTURE</p><h1 className="hero-title">African Energy<br/>Hub Ltd<span className="text-primary">.</span></h1><p className="text-xl sm:text-2xl text-primary-foreground mt-5 font-medium">Reliable power. Real progress.</p><p className="text-primary-foreground/85 text-base leading-relaxed mt-4 max-w-lg">Electrical equipment supply, installation, commissioning and maintenance. Built for Rwanda's businesses, institutions and communities.</p><div className="flex flex-wrap gap-3 mt-8"><Button asChild size="lg"><Link to="/projects">Explore our projects <ArrowRight/></Link></Button><Button asChild size="lg" variant="hero"><Link to="/contact">Request a quote <ArrowUpRight/></Link></Button></div></div></div><div className="hero-caption"><span className="h-2 w-2 bg-primary"/><span>Inkundamahoro site</span><span className="hidden sm:inline text-primary-foreground/65">EV charging infrastructure · October 2026</span></div></section>;}
+import heroImage from "@/assets/hero-energy.jpg";
+import { ArrowRight } from "lucide-react";
+
+const HeroSection = () => (
+  <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <div className="absolute inset-0">
+      <img src={heroImage} alt="Energy infrastructure at sunset" width={1920} height={1080} className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-energy-dark/70" />
+    </div>
+    <div className="container relative z-10 py-20">
+      <div className="max-w-2xl">
+        <span className="inline-block bg-gradient-warm text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6 animate-fade-up">Quick Energy Service Delivery</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          African Energy Hub Powering Rwanda's <span className="text-primary-foreground">Energy Future</span>
+        </h1>
+        <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          African Energy Hub Ltd delivers professional supply, installation, and maintenance of electrical LV–HV materials and power equipment for public institutions, private organizations, and individuals across Rwanda.
+        </p>
+        <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <a href="#services" className="bg-gradient-primary text-primary-foreground px-8 py-3.5 rounded-lg font-semibold flex items-center gap-2 hover:opacity-90 transition-opacity">
+            Our Services <ArrowRight className="h-4 w-4" />
+          </a>
+          <a href="#contact" className="border border-primary-foreground/30 text-primary-foreground px-8 py-3.5 rounded-lg font-semibold hover:bg-primary-foreground/10 transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export default HeroSection;

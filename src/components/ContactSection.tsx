@@ -1,4 +1,38 @@
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-export default function ContactSection(){return <section id="contact" className="bg-primary text-primary-foreground py-14"><div className="container flex flex-col md:flex-row md:items-center justify-between gap-7"><div><p className="text-xs font-semibold mb-3">LET'S WORK TOGETHER</p><h2 className="text-3xl sm:text-4xl font-semibold">Your next project starts here.</h2><p className="mt-3 text-primary-foreground/85">Talk to our team about your electrical infrastructure needs.</p></div><div className="flex flex-wrap gap-3"><Button asChild variant="secondary" size="lg"><Link to="/contact">Request a quote <ArrowUpRight/></Link></Button><Button asChild variant="hero" size="icon" title="Call African Energy Hub"><a href="tel:+250788608320" aria-label="Call African Energy Hub"><Phone/></a></Button></div></div></section>;}
+import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
+
+const ContactSection = () => (
+  <section id="contact" className="py-24 bg-muted/50">
+    <div className="container">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mt-3">Contact Us</h2>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { icon: Phone, label: "Phone", value: "+250 788 608 320", href: "tel:+250788608320" },
+            { icon: Mail, label: "Email", value: "africanenergyhub@gmail.com", href: "mailto:africanenergyhub@gmail.com" },
+            { icon: MapPin, label: "Address", value: "Muhima Sector, Nyarugenge District, Kigali, Rwanda", href: "#" },
+            { icon: Linkedin, label: "LinkedIn", value: "African Energy Hub Ltd", href: "https://www.linkedin.com/in/african-energy-hub-ltd-5a3a48404" },
+          ].map(c => (
+            <a
+              key={c.label}
+              href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="bg-card rounded-xl p-6 shadow-card border border-border text-center hover:shadow-elevated transition-shadow block"
+            >
+              <div className="w-12 h-12 mx-auto bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
+                <c.icon className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <h3 className="font-display font-semibold mb-2">{c.label}</h3>
+              <p className="text-muted-foreground text-sm break-words">{c.value}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export default ContactSection;
