@@ -56,8 +56,8 @@ const ServicesSection = () => {
         {services.map(s => (
           <CarouselItem key={s.num} aria-label={`${s.num}: ${s.title}`}>
           <div className="group h-full bg-card backdrop-blur rounded-xl overflow-hidden border border-border hover:border-secondary/40 transition-all duration-300">
-            <div className="h-64 md:h-72 overflow-hidden bg-muted">
-              <img src={s.image} alt={s.title} width={1280} height={720} loading="lazy" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+            <div className="h-[360px] sm:h-[480px] overflow-hidden bg-muted">
+              <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-contain object-center" />
             </div>
             <div className="p-6 sm:p-8 min-h-[340px] sm:min-h-[320px]">
               <span className="text-5xl font-display font-bold text-secondary/15 block mb-4">{s.num}</span>
