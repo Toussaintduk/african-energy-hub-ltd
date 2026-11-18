@@ -13,6 +13,7 @@ import ContactSection from "@/components/ContactSection";
 
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import ContactHelpDesk from "@/components/ContactHelpDesk";
 
 const Index = () => (
   <div className="min-h-screen">
@@ -30,6 +31,7 @@ const Index = () => (
     <Reveal direction="fade"><ContactSection /></Reveal>
 
     <Footer />
+    <ContactHelpDesk />
   </div>
 );
 
