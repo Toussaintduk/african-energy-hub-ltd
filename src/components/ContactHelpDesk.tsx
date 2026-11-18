@@ -28,8 +28,8 @@ const ContactHelpDesk = () => {
             </div>
           </motion.div>
         ) : greeting ? (
-          <motion.div key="welcome" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1 rounded-lg border border-border bg-card p-2 text-card-foreground shadow-card">
-            <Button variant="ghost" className="h-auto whitespace-normal text-left" onClick={() => { setOpen(true); setGreeting(false); }}>👋 Welcome! How can we help?</Button>
+          <motion.div key="welcome" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex w-[180px] items-center gap-1 rounded-lg border border-border bg-card p-2 text-card-foreground shadow-card sm:w-auto">
+            <Button variant="ghost" className="h-auto whitespace-normal px-2 text-left text-xs sm:text-sm" onClick={() => { setOpen(true); setGreeting(false); }}>👋 Welcome! Need help?</Button>
             <Button variant="ghost" size="icon" aria-label="Dismiss welcome message" onClick={() => setGreeting(false)}><X /></Button>
           </motion.div>
         ) : null}
