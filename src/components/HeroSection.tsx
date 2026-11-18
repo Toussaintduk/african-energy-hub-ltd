@@ -14,9 +14,9 @@ const slides = [
 const HeroSection = () => {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % slides.length), 6000);
-    return () => clearInterval(t);
-  }, []);
+    const t = setTimeout(() => setI((v) => (v + 1) % slides.length), 6000);
+    return () => clearTimeout(t);
+  }, [i]);
   return (
   <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
     <div className="absolute inset-0 bg-energy-dark">
