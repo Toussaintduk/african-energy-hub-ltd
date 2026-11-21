@@ -43,7 +43,7 @@ const HeroSection = () => {
     </div>
     <div className="container relative z-10 py-20">
       <div className="max-w-2xl">
-        <span className="inline-block bg-gradient-warm text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6 animate-fade-up">Quick Energy Service Delivery</span>
+        <span className="inline-block bg-gradient-warm text-primary-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6 animate-fade-up">Quick Energy Service Delivery</span>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           African Energy Hub Powering Rwanda's <span className="text-primary-foreground">Energy Future</span>
         </h1>

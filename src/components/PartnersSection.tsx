@@ -44,7 +44,7 @@ const PartnersSection = () => (
         <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Our Certifications</h3>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
           {certifications.map((c) => (
-            <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-28 md:h-32 w-44 md:w-52 shadow-card border border-border hover:shadow-elevated transition-shadow">
+            <div key={c.alt} className="flex items-center justify-center bg-brand-surface rounded-lg p-4 h-28 md:h-32 w-44 md:w-52 shadow-card border border-border hover:shadow-elevated transition-shadow">
               <img src={c.src} alt={c.alt} loading="lazy" className="max-h-full max-w-full object-contain" />
             </div>
           ))}
@@ -55,7 +55,7 @@ const PartnersSection = () => (
         <h3 className="text-center font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">Trusted by Leading Organizations</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
           {clients.map((c) => (
-            <div key={c.alt} className="flex items-center justify-center bg-card rounded-lg p-4 h-24 shadow-card border border-border hover:shadow-elevated transition-shadow">
+            <div key={c.alt} className="flex items-center justify-center bg-brand-surface rounded-lg p-4 h-24 shadow-card border border-border hover:shadow-elevated transition-shadow">
               <img src={c.src} alt={c.alt} loading="lazy" className="max-h-14 w-auto object-contain" />
             </div>
           ))}

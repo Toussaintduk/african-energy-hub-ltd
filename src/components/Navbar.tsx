@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "@/assets/logo-aeh.png";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -17,19 +18,22 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border shadow-sm">
       <div className="container flex items-center justify-between h-24">
-        <a href="#" className="flex items-center gap-3 font-display font-bold text-lg text-foreground">
+        <a href="#" className="flex items-center gap-3 font-display font-bold text-base lg:text-lg text-foreground">
           <img src={logo} alt="African Energy Hub Ltd logo" width={96} height={96} className="h-20 w-20 md:h-24 md:w-24 object-contain" />
           <span className="hidden sm:inline">African Energy Hub Ltd</span>
         </a>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 lg:gap-6">
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase()}`} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{l}</a>
           ))}
           <a href="#contact" className="bg-gradient-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">Get a Quote</a>
         </div>
-        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="md:hidden text-foreground">
+        <div className="flex items-center gap-3 ml-3">
+        <ThemeToggle />
+        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="lg:hidden text-foreground">
           <Menu className="h-6 w-6" />
         </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -40,7 +44,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.4 }}
-            className="md:hidden fixed inset-0 z-50 bg-background flex flex-col p-6 shadow-elevated"
+            className="lg:hidden fixed inset-0 z-50 bg-background flex flex-col p-6 shadow-elevated"
           >
             <div className="flex justify-between items-center mb-8">
               <span className="font-display font-bold text-lg flex items-center gap-3 text-foreground">
@@ -52,6 +56,10 @@ const Navbar = () => {
               </button>
             </div>
             <div className="flex flex-col gap-6">
+              <div className="flex items-center justify-between text-foreground text-sm font-medium">
+                <span>Appearance</span>
+                <ThemeToggle />
+              </div>
               {links.map((l, i) => (
                 <motion.a
                   key={l}
