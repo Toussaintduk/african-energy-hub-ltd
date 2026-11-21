@@ -3,3 +3,5 @@
 - [x] Add a welcoming floating help desk linking to existing contact options.
 - [x] Verify both features on desktop and mobile.
 - [x] Add and verify a persistent light/dark appearance switch on desktop and mobile, preserving the existing content and branding.
+- [ ] Translate the website into Kinyarwanda and French with English as the original language.
+- [ ] Add a saved language selector and verify navigation, slideshows, and mobile layouts in all three languages.
